@@ -1,0 +1,7 @@
+
+.main_Task{
+    direction: rtl;
+    display: flex;
+    font-size: larger;
+    gap:40px;
+}
