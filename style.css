@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+
 body {
   direction: rtl;
    display: flex;
@@ -23,7 +24,7 @@ body {
 
 .category:hover {
   box-shadow: 0px 3px 15px rgba(97, 97, 97, 0.83);
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.1s;
 }
 
 .category {
@@ -52,7 +53,7 @@ body {
 
 .all .border .img_size:hover {
   box-shadow: 0px 3px 15px rgba(211, 13, 221, 0.83);
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.1s;
 }
 
 .all .border .img_size {
@@ -81,28 +82,42 @@ body {
   border-radius: 10%;
   box-shadow: 0px 3px 5px rgba(120, 119, 119, 0.4);
   text-align: center;
-  
+  /* margin: -10px 5px 5px -90px ; */
+  /* padding:-10px 5px 5px -90px ; */
+
 }
 
 .star {
-  display: flex;
   grid-gap: 10px;
 }
 svg {
   color: #555;
   transition: 0.6s;
+  gap:10px;
+  padding-bottom: 5px;
 }
 
 .active {
   color: gold;
 }
+
 h6 {
   color: #888;
   font-size: medium;
-  font-weight: 600px;
+  font-weight: 900px;
+}
+ 
+
+ #logo_food {
+    border-radius: 50%;
+  /* width: 200px;
+  height: 200px; */
+}  
+
+
+ @media screen and (max-width: 0px) {
+   .main {
+    flex-wrap: wrap;
+    }
 }
 
-#logo_food {
-  width: 150px;
-  height: 150px;
-}
