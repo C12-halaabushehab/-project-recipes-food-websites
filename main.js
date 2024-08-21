@@ -166,11 +166,13 @@ const mainRecipes = [
 
 
 
-const allrecipes= [
 
-        {
-            name: " المقلوبة"
-           , Ingredients: ` 
+const allrecipes = [
+  {
+    img: "مقلوبة.webp",
+
+    name: " المقلوبة",
+    Ingredients: ` 
 Sure! Here’s a short English paragraph:
 
 "The importance of teamwork cannot be overstated in any successful organization. When individuals work together, they combine their strengths, share ideas, and support each other to achieve common goals. This collaboration not only leads to more innovative solutions but also fosters a positive work environment where everyone feels valued. Effective teamwork can significantly enhance productivity, drive better results, and create a sense of camaraderie among team members. Ultimately, it is through teamwork that challenges are overcome, and success is achieved."
@@ -178,94 +180,98 @@ Sure! Here’s a short English paragraph:
 If you need a paragraph on a specific topic, feel free to ask!
     
             `,
-        discription: `  
+    discription: `  
 Sure! Here’s a short English paragraph:
 
 "The importance of teamwork cannot be overstated in any successful organization. When individuals work together, they combine their strengths, share ideas, and support each other to achieve common goals. This collaboration not only leads to more innovative solutions but also fosters a positive work environment where everyone feels valued. Effective teamwork can significantly enhance productivity, drive better results, and create a sense of camaraderie among team members. Ultimately, it is through teamwork that challenges are overcome, and success is achieved."
 
-If you need a paragraph on a specific topic, feel free to ask!`
-          },
-    
-          {
-            name: " 2المقلوبة",
-            Ingredients: "لرؤرؤررؤالمكونات",
-            discription: "  222222222222شرح",
-          },
-    
-          {
-            name: " 3المقلوبة",
-            Ingredients: "لرؤرؤررؤالمكونات",
-            discription: "  33333333333شرح",
-          },
+If you need a paragraph on a specific topic, feel free to ask!`,
+  },
 
+  {
+    img: "مسخن.jpg",
+    name: " 2المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  222222222222شرح",
+  },
 
-        {
-          name: " 4المقلوبة",
-          Ingredients: "لرؤرؤررؤالمكونات",
-          discription: "  11111111111شرح",
-        },
-  
-        {
-          name: " 5المقلوبة",
-          Ingredients: "لرؤرؤررؤالمكونات",
-          discription: "  222222222222شرح",
-        },
-  
-        {
-          name: "6المقلوبة",
-          Ingredients: "لرؤرؤررؤالمكونات",
-          discription: "  33333333333شرح",
-        },
-    
-    {
-        name: " 7المقلوبة",
-        Ingredients: "لرؤرؤررؤالمكونات",
-        discription: "  11111111111شرح",
-      },
+  {
+    img: "العكوب.jpg",
+    name: " 3المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  33333333333شرح",
+  },
 
-      {
-        name: " 8المقلوبة",
-        Ingredients: "لرؤرؤررؤالمكونات",
-        discription: "  222222222222شرح",
-      },
+  {
+    img:"سلطة3.jpg",
 
-      {
-        name: " 9المقلوبة",
-        Ingredients: "لرؤرؤررؤالمكونات",
-        discription: "  33333333333شرح",
-      },
+    name: " 4المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  11111111111شرح",
+  },
 
-        {
-          name: " 10المقلوبة",
-          Ingredients: "لرؤرؤررؤالمكونات",
-          discription: "  11111111111شرح",
-        },
-  
-        {
-          name: " 11المقلوبة",
-          Ingredients: "لرؤرؤررؤالمكونات",
-          discription: "  222222222222شرح",
-        },
-  
-        {
-          name: " 12المقلوبة",
-          Ingredients: "لرؤرؤررؤالمكونات",
-          discription: "  33333333333شرح",
-        }
-    
+  {
+    img: "سلطة2.jpg",
+
+    name: " 5المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  222222222222شرح",
+  },
+
+  {
+    img: "سلطة2.jpg",
+
+    name: "6المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  33333333333شرح",
+  },
+
+  {
+    img: "بابا غنوج.jpg",
+
+    name: " 7المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  11111111111شرح",
+  },
+
+  {
+    img: "مخللات.jpg",
+
+    name: " 8المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  222222222222شرح",
+  },
+
+  {
+    img: "فتة حمص.jpg",
+
+    name: " 9المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  33333333333شرح",
+  },
+
+  {
+    img: "عصير الورد.jpg",
+
+    name: " 10المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  11111111111شرح",
+  },
+
+  {    
+    img: "عصير الليمون.jpg",
+    name: " 11المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  222222222222شرح",
+  },
+
+  {
+    img: "عصير اللوز.webp  ",
+    name: " 12المقلوبة",
+    Ingredients: "لرؤرؤررؤالمكونات",
+    discription: "  33333333333شرح",
+  },
 ];
-
-
-
-
-
-
-
-
-
-    
-
-
 
 
 
@@ -281,18 +287,37 @@ mainRecipes.forEach((ele, i) => {
 
   //   });
 
-//   for (const key in mainRecipes) {
-//     const food = $(`<div>
-//     ${recipes[key]}
-//     </div>`);
-//     meals.append(food);
-//   }
+  //   for (const key in mainRecipes) {
+  //     const food = $(`<div>
+  //     ${recipes[key]}
+  //     </div>`);
+  //     meals.append(food);
+  //   }
   //   food.on("click", () => {});
 });
 
-
 allrecipes.forEach((ele, i) => {
-    console.log(ele);
-  
-    const all_list = $(`<div class="all">${ele.name}</div>`);
-   meals.append(all_list);});
+  console.log(ele);
+
+  const all_list =
+    $(`<div class="all"> <img  class="img_size" src= "${ele.img}"/>  </div> <br>
+        <div class="names"> ${ele.name} </div>
+ `);
+  meals.append(all_list);
+});
+
+
+
+
+
+
+
+
+
+
+//    var allimg = $("<img />", {
+//     id: "allimg",
+//     src: "logo_food.jpg",
+//   });
+//   img_food.appendTo($("#logo_food"));
+//   mainType.append(img_food);

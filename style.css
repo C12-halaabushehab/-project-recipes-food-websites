@@ -8,6 +8,7 @@ flex-wrap: wrap;
 
 
 .main_Type{
+
     display: flex;
     align-items: center; 
     /* background-color: aliceblue; */
@@ -33,6 +34,52 @@ padding: 30px  20px 40px 20px ;
 box-shadow:0px 3px 5px rgba(120, 119, 119, 0.4) ;
  
 }
+
+.meals{
+    width: 60%;
+    /* align-items: center;  */
+    /* text-align: center; */
+background-color: brown;
+padding: 10px 0;
+margin: 10px 0;
+
+
+}
+
+.all{
+    background-color: aqua;
+    padding: 30px  20px 40px 20px ;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black; 
+    border-radius: 50%; 
+  float: right;
+  margin: 25px;
+    box-shadow:0px 3px 5px rgba(120, 119, 119, 0.4) ;  
+}
+
+.names{
+color:blue;
+width: 60%;
+
+text-align: center;
+background-color: brown;
+padding: 10px 0;
+margin: 10px 0;
+
+}
+
+.img_size{
+    
+    width: 300px;
+    height: 300px;
+    border: 1px solid black; 
+    border-radius: 50%; 
+  float: right;
+  margin: 25px;
+    box-shadow:0px 3px 5px rgba(120, 119, 119, 0.4) ;  
+}
+
 
 #logo_food{
     width: 150px;
