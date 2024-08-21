@@ -272,13 +272,13 @@ If you need a paragraph on a specific topic, feel free to ask!`,
 mainRecipes.forEach((ele, i) => {
   console.log(ele);
 
-  const thelist = $(`<div id="list_need${[i]} "  class="category">${ele.category}</div>`);
+  const thelist = $(`<div  "  class="category">${ele.category}</div>`);
   mainType.append(thelist);
 });
 
 allrecipes.forEach((ele, i) => {
   const all_list =
-    $(`<div id="dish ${[i]}"   class="all"> <div class="border"> <img  class="img_size" src= "${ele.img}"/> <h3 class="names"> ${ele.name} </h3> 
+    $(`<div    class="all"> <div class="border"> <img  class="img_size" src= "${ele.img}"/> <h3 class="names"> ${ele.name} </h3> 
         </div>
 <div class="container"> 
         <h6>rateing</h6>
@@ -313,45 +313,21 @@ allrecipes.forEach((ele, i) => {
 
 
  const show_contant =()=>{
-   $('#dish1').on("click" ,()=>{
+   $('ce').on("click" ,()=>{
 console.log("hi")
     $('.meals').hide();
 
-    // mainRecipes.forEach((ele, i) => {
-    //     const dish = $(`<div>${ele.name} ${ele.Ingredients}</div>`);
-    //   $(all1).append(dish);
+    mainRecipes.forEach((ele, i) => {
+        const dish = $(`<div>${ele.name} ${ele.Ingredients}</div>`);
+      $(all1).append(dish);
       
-    //   });
+      });
      show_contant()
 } )
 
 }
 
  show_contant();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -379,40 +355,6 @@ console.log("hi")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // if (level === maxlevel) {
 //     div.style.display = "none";
 //     end.style.display = "block";
@@ -430,12 +372,6 @@ console.log("hi")
 // info.style.display = "none";
 // div.style.display = "block";
 // });
-
-
-
-
-
-
 
 
 
