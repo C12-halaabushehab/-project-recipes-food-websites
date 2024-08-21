@@ -1,9 +1,40 @@
 
-.main_Task{
+body{
+    display:flex;
+flex-wrap: wrap;
+}
+
+.main{
     direction: rtl;
+  
+}
+
+
+.main_Type{
     display: flex;
+    align-items: center; 
+    /* background-color: aliceblue; */
+ margin-top: 10px;
+ padding:2px;
+  /* background-color: rgb(232, 232, 234); */
     font-size: larger;
     gap:40px;
+   border-bottom:solid gray 1px ;
+
+}
+
+.category:hover{
+    box-shadow: 0px 3px 15px rgba(97, 97, 97, 0.83) ;
+    transition: box-shadow 0.2s;
+}
+
+.category{
+padding: 30px  20px 40px 20px ;
+ border: 1px solid black; 
+
+ border-radius: 50%; 
+box-shadow:0px 3px 5px rgba(120, 119, 119, 0.4) ;
+ 
 }
 
 #logo_food{

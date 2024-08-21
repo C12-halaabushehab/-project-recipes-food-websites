@@ -8,7 +8,7 @@ body.append(main);
 
 
 const mainType = $(`<div></div>`);
-mainType.addClass("main_Task");
+mainType.addClass("main_Type");
 main.append(mainType);
 
 var img_food = $('<img />', { 
@@ -19,7 +19,8 @@ var img_food = $('<img />', {
 mainType.append(img_food)
 
 
-const search = $(`<input></input>`);
+const search = $(`<input class="search"></input>`);
+
 mainType.append(search);
 
 
@@ -127,7 +128,7 @@ const mainRecipes = [
   },
 
   {
-    category: "السلطات",
+    category: "  ..السلطات",
     recipes: [
       {
         name: " 1المقلوبة",
@@ -150,7 +151,7 @@ const mainRecipes = [
   },
 
   {
-    category: "العصائر",
+    category: " العصائر",
     recipes: [
       {
         name: " 4المقلوبة",
@@ -176,7 +177,7 @@ const mainRecipes = [
 mainRecipes.forEach((ele, i) => {
   console.log(ele);
 
-  const thelist = $(`<div>${ele.category}</div>`);
+  const thelist = $(`<div class="category">${ele.category}</div>`);
   mainType.append(thelist);
   //   type_food.on("click", () => {});
 
