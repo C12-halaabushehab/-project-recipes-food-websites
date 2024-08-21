@@ -281,27 +281,25 @@ mainRecipes.forEach((ele, i) => {
   const thelist = $(`<div class="category">${ele.category}</div>`);
   mainType.append(thelist);
 
-  //   mainRecipes.forEach((ele, i) => {
-  //       const all_meal = $(`<div>${ele.name}</div>`);
-  //       meals.append(all_meal);
 
-  //   });
-
-  //   for (const key in mainRecipes) {
-  //     const food = $(`<div>
-  //     ${recipes[key]}
-  //     </div>`);
-  //     meals.append(food);
-  //   }
-  //   food.on("click", () => {});
 });
 
 allrecipes.forEach((ele, i) => {
   console.log(ele);
 
   const all_list =
-    $(`<div class="all"> <img  class="img_size" src= "${ele.img}"/>  </div> <br>
-        <div class="names"> ${ele.name} </div>
+    $(`<div class="all"> <img  class="img_size" src= "${ele.img}"/> <h3 class="names"> ${ele.name} </h3> 
+        
+        
+        <div class="container"> 
+        <h6>rateing</h6>
+<div class="star">
+
+<<i class="bi bi-star-fill"></i>
+>
+
+        </div> </div> 
+        
  `);
   meals.append(all_list);
 });
@@ -311,13 +309,3 @@ allrecipes.forEach((ele, i) => {
 
 
 
-
-
-
-
-//    var allimg = $("<img />", {
-//     id: "allimg",
-//     src: "logo_food.jpg",
-//   });
-//   img_food.appendTo($("#logo_food"));
-//   mainType.append(img_food);
