@@ -1,13 +1,10 @@
 
 body{
+    direction: rtl;
     display:flex;
 flex-wrap: wrap;
 }
 
-.main{
-    direction: rtl;
-  
-}
 
 
 .main_Type{

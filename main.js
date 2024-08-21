@@ -3,32 +3,20 @@ main.addClass("main");
 const body = $("body");
 body.append(main);
 
-
-
-
-
 const mainType = $(`<div></div>`);
 mainType.addClass("main_Type");
 main.append(mainType);
 
-var img_food = $('<img />', { 
-    id: 'logo_food',
-    src: 'logo_food.jpg',
-  });
-  img_food.appendTo($('#logo_food'));
-mainType.append(img_food)
+var img_food = $("<img />", {
+  id: "logo_food",
+  src: "logo_food.jpg",
+});
+img_food.appendTo($("#logo_food"));
+mainType.append(img_food);
 
-
-const search = $(`<input class="search"></input>`);
+const search = $(`<input class="search" placeholder="ابحث عن وصفة"></input>`);
 
 mainType.append(search);
-
-
-
-
-
-
-
 
 const chooseYor_list = $(`<div></div>`);
 chooseYor_list.addClass("choose_list");
@@ -152,6 +140,7 @@ const mainRecipes = [
 
   {
     category: " العصائر",
+
     recipes: [
       {
         name: " 4المقلوبة",
@@ -174,16 +163,136 @@ const mainRecipes = [
   },
 ];
 
+
+
+
+const allrecipes= [
+
+        {
+            name: " المقلوبة"
+           , Ingredients: ` 
+Sure! Here’s a short English paragraph:
+
+"The importance of teamwork cannot be overstated in any successful organization. When individuals work together, they combine their strengths, share ideas, and support each other to achieve common goals. This collaboration not only leads to more innovative solutions but also fosters a positive work environment where everyone feels valued. Effective teamwork can significantly enhance productivity, drive better results, and create a sense of camaraderie among team members. Ultimately, it is through teamwork that challenges are overcome, and success is achieved."
+
+If you need a paragraph on a specific topic, feel free to ask!
+    
+            `,
+        discription: `  
+Sure! Here’s a short English paragraph:
+
+"The importance of teamwork cannot be overstated in any successful organization. When individuals work together, they combine their strengths, share ideas, and support each other to achieve common goals. This collaboration not only leads to more innovative solutions but also fosters a positive work environment where everyone feels valued. Effective teamwork can significantly enhance productivity, drive better results, and create a sense of camaraderie among team members. Ultimately, it is through teamwork that challenges are overcome, and success is achieved."
+
+If you need a paragraph on a specific topic, feel free to ask!`
+          },
+    
+          {
+            name: " 2المقلوبة",
+            Ingredients: "لرؤرؤررؤالمكونات",
+            discription: "  222222222222شرح",
+          },
+    
+          {
+            name: " 3المقلوبة",
+            Ingredients: "لرؤرؤررؤالمكونات",
+            discription: "  33333333333شرح",
+          },
+
+
+        {
+          name: " 4المقلوبة",
+          Ingredients: "لرؤرؤررؤالمكونات",
+          discription: "  11111111111شرح",
+        },
+  
+        {
+          name: " 5المقلوبة",
+          Ingredients: "لرؤرؤررؤالمكونات",
+          discription: "  222222222222شرح",
+        },
+  
+        {
+          name: "6المقلوبة",
+          Ingredients: "لرؤرؤررؤالمكونات",
+          discription: "  33333333333شرح",
+        },
+    
+    {
+        name: " 7المقلوبة",
+        Ingredients: "لرؤرؤررؤالمكونات",
+        discription: "  11111111111شرح",
+      },
+
+      {
+        name: " 8المقلوبة",
+        Ingredients: "لرؤرؤررؤالمكونات",
+        discription: "  222222222222شرح",
+      },
+
+      {
+        name: " 9المقلوبة",
+        Ingredients: "لرؤرؤررؤالمكونات",
+        discription: "  33333333333شرح",
+      },
+
+        {
+          name: " 10المقلوبة",
+          Ingredients: "لرؤرؤررؤالمكونات",
+          discription: "  11111111111شرح",
+        },
+  
+        {
+          name: " 11المقلوبة",
+          Ingredients: "لرؤرؤررؤالمكونات",
+          discription: "  222222222222شرح",
+        },
+  
+        {
+          name: " 12المقلوبة",
+          Ingredients: "لرؤرؤررؤالمكونات",
+          discription: "  33333333333شرح",
+        }
+    
+];
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
 mainRecipes.forEach((ele, i) => {
   console.log(ele);
 
   const thelist = $(`<div class="category">${ele.category}</div>`);
   mainType.append(thelist);
-  //   type_food.on("click", () => {});
 
-  const food = $(`<div>
- 
-    </div>`);
-  meals.append(food);
-  food.on("click", () => {});
+  //   mainRecipes.forEach((ele, i) => {
+  //       const all_meal = $(`<div>${ele.name}</div>`);
+  //       meals.append(all_meal);
+
+  //   });
+
+//   for (const key in mainRecipes) {
+//     const food = $(`<div>
+//     ${recipes[key]}
+//     </div>`);
+//     meals.append(food);
+//   }
+  //   food.on("click", () => {});
 });
+
+
+allrecipes.forEach((ele, i) => {
+    console.log(ele);
+  
+    const all_list = $(`<div class="all">${ele.name}</div>`);
+   meals.append(all_list);});
