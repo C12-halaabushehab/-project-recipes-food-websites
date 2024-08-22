@@ -30,36 +30,105 @@ main.append(meals);
 const tag_tape = $(`<div></div>`);
 tag_tape.addClass("tag_tape");
 
-
 const mainRecipes = [
-     
-     { category: "الوصفات الرئيسية",recipes:
-         [{ name: " المقلوبة" ,img: "مقلوبة.webp", Ingredients: ` 1111`, discription: ` hh `},
-          { name: " المسخن", img: "مسخن.jpg",Ingredients: "333لرؤرؤررؤالمكونات", discription: "  222222222222شرح"},
-          {name: " العكوب", img: "العكوب.jpg",Ingredients: "222لرؤرؤررؤالمكونات", discription: "  33333333333شرح",},], },
+  {
+    category: "الوصفات الرئيسية",
+    recipes: [
+      {
+        name: " المقلوبة",
+        img: "مقلوبة.webp",
+        Ingredients: ` 1111`,
+        discription: ` hh `,
+      },
+      {
+        name: " المسخن",
+        img: "مسخن.jpg",
+        Ingredients: "333لرؤرؤررؤالمكونات",
+        discription: "  222222222222شرح",
+      },
+      {
+        name: " العكوب",
+        img: "العكوب.jpg",
+        Ingredients: "222لرؤرؤررؤالمكونات",
+        discription: "  33333333333شرح",
+      },
+    ],
+  },
 
-     {category: "المقبلات ",recipes: [
-     {name: " فتة الحمص", img: "بابا غنوج.jpg ", Ingredients: "4444لرؤرؤررؤالمكونات", discription: "  44444"},
-     {name: " المتبل",    img: "فتة حمص.jpg",Ingredients: "5555لرؤرؤررؤالمكونات", discription: "  55555"},
-     {name: " المخللات",     img: "مخللات.jpg",Ingredients: "6666لرؤرؤررؤالمكونات", discription: "  66666666"},],},
+  {
+    category: "المقبلات ",
+    recipes: [
+      {
+        name: " فتة الحمص",
+        img: "بابا غنوج.jpg ",
+        Ingredients: "4444لرؤرؤررؤالمكونات",
+        discription: "  44444",
+      },
+      {
+        name: " المتبل",
+        img: "فتة حمص.jpg",
+        Ingredients: "5555لرؤرؤررؤالمكونات",
+        discription: "  55555",
+      },
+      {
+        name: " المخللات",
+        img: "مخللات.jpg",
+        Ingredients: "6666لرؤرؤررؤالمكونات",
+        discription: "  66666666",
+      },
+    ],
+  },
 
-  {category: "  الحلويات",recipes:
-     [{name: " الكنافة", img: " كنافة.jpg   ",Ingredients: "7777لرؤرؤررؤالمكونات",discription: "  11111177711111شرح"},
-      {name: " التمرية النابلسية", img: "تمرية.jpg",Ingredients: "8888لرؤرؤررؤالمكونات",discription: "  2888822222222222شرح",}, 
-      { name: " اليانسونية",    img: "هريسة الاينسون.jpg",Ingredients: "999لرؤرؤررؤالمكونات", discription: "  999999999",},],},
+  {
+    category: "  الحلويات",
+    recipes: [
+      {
+        name: " الكنافة",
+        img: " كنافة.jpg   ",
+        Ingredients: "7777لرؤرؤررؤالمكونات",
+        discription: "  11111177711111شرح",
+      },
+      {
+        name: " التمرية النابلسية",
+        img: "تمرية.jpg",
+        Ingredients: "8888لرؤرؤررؤالمكونات",
+        discription: "  2888822222222222شرح",
+      },
+      {
+        name: " اليانسونية",
+        img: "هريسة الاينسون.jpg",
+        Ingredients: "999لرؤرؤررؤالمكونات",
+        discription: "  999999999",
+      },
+    ],
+  },
 
-  {category: " العصائر",recipes: 
-    [{name: " شاي على الفحم",img: "شاي 6.jpg", Ingredients: "100لرؤرؤررؤالمكونات",discription: "  101010",},
-     {name: " الكركديه", img: "كركديه.jpg", Ingredients: "111198لرؤرؤررؤالمكونات",discription: "  1111",},
-     {name: " اللوز",     img: "عصير اللوز.webp  ",Ingredients: "12لرؤرؤررؤالمكونات",discription: "  121212",},],},
+  {
+    category: " العصائر",
+    recipes: [
+      {
+        name: " شاي على الفحم",
+        img: "شاي 6.jpg",
+        Ingredients: "100لرؤرؤررؤالمكونات",
+        discription: "  101010",
+      },
+      {
+        name: " الكركديه",
+        img: "كركديه.jpg",
+        Ingredients: "111198لرؤرؤررؤالمكونات",
+        discription: "  1111",
+      },
+      {
+        name: " اللوز",
+        img: "عصير اللوز.webp  ",
+        Ingredients: "12لرؤرؤررؤالمكونات",
+        discription: "  121212",
+      },
+    ],
+  },
 ];
 
-
-
-
-
 mainRecipes.forEach((e, i) => {
-
   const thelist = $(
     `<div  id="category${i}" class="category" data-category ="category${i}">${e.category}</div>`
   );
@@ -67,44 +136,53 @@ mainRecipes.forEach((e, i) => {
 });
 // console.log(mainRecipes[i].recipes[5])
 
-
-
+const onClickCategory = function (elem) {
+  console.log(elem);
+};
 
 mainRecipes.forEach((e, i) => {
-mainRecipes[i].recipes.forEach((e, i) => {
-    const all_list =$(`<div  id="all${i}"class="all" data-list="list${i}"> <div class="border" id="border${i}"  data-border="border${i}"  > <img  class="img_size" src= "${e.img}"/> 
-      <h3 class="names"> ${e.name} </h3> 
-      </div>
-  
-  <button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">favourite </button>
-  <div class="container"> 
-          <h6>Please rate the recipe</h6>
-  <div class="star">
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star"></span>
-  <span class="fa fa-star"></span>
-          </div>  
+  mainRecipes[i].recipes.forEach((e, i) => {
+    const imageDiv =
+      $(`<div class="border" id="border${i}"  data-border="border${i}"> 
+                <img  class="img_size" src= "${e.img}"/> 
+            <h3 class="names"> ${e.name} </h3> 
+      </div>`);
+
+    const content =
+      $(`<button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">
+                favourite 
+        </button>
+        <div class="container"> 
+             <h6>Please rate the recipe</h6>
+        </div>      
+        <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+         </div>   `);
+
+    const container = $(`
+    <div  id="all${i}"class="all" data-list="list${i}"> </div>  
    `);
-    meals.append(all_list);
 
+   imageDiv.on("click", function (){
+        console.log(this);
+      
+    })
+
+    container.append(imageDiv)
+    container.append(content)
+    meals.append(container);
+
+    /*   $(".border").on("click", function () {
+      const allId = $(e).attr("data-border");
+      $(".meals").html($(".meals").add(e));
+      console.log();
+    }); */
   });
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $(function () {
   const your_fav_list = [];
@@ -117,21 +195,13 @@ $(function () {
   });
 });
 
-$(function () {
-  $(".border").on("click", function () {
-    const allId = $(this).attr("data-border");
-    console.log("this all", this);
-    $(".meals").html($(".meals_1").show(1000));
-  });
-});
-
-$(function () {
-  $(".category").on("click", function () {
-    const categoryId = $(this).attr("data-category");
-    console.log(this);
-    $(".category").html(mainMenu.show(1000).toggel());
-  });
-});
+// $(function () {
+//   $(".category").on("click", function () {
+//     const categoryId = $(this).attr("data-category");
+//     console.log(this);
+//     $(".category").html(mainMenu.show(1000).toggel());
+//   });
+// });
 
 // $(function () {
 //   $(".#search").keyup(function () {
