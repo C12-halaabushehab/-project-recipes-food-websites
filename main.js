@@ -43,6 +43,7 @@ const meals_9 = $(".meals_9");
 const meals_10 = $(".meals_10");
 const meals_11 = $(".meals_11");
 const meals_12 = $(".meals_12");
+const Menu=$(".Menu")
 $(function () {
   meals_1.hide();
   meals_2.hide();
@@ -56,6 +57,7 @@ $(function () {
   meals_10.hide();
   meals_11.hide();
   meals_12.hide();
+Menu.hide()
 });
 
 const mainRecipes = [
@@ -297,23 +299,23 @@ mainRecipes.forEach((ele, i) => {
   console.log(ele);
 
   const thelist = $(
-    `<div  id="category${i}" class="category data-category ="category${i}  ">${ele.category}</div>`
+    `<div  id="category${i}" class="category" data-category ="category${i}  ">${ele.category}</div>`
   );
   mainType.append(thelist);
 });
 
 allrecipes.forEach((ele, i) => {
   const all_list =
-    $(`<div  id="all${i}"class="all" data-list="list${i}"> <div class="border"> <img  class="img_size" src= "${ele.img}"/> 
+    $(`<div  id="all${i}"class="all" data-list="list${i}"> <div class="border" id="border${i}"  data-border="border${i}"   > <img  class="img_size" src= "${ele.img}"/> 
   
         <h3 class="names"> ${ele.name} </h3> 
   
-      
-        <button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">favourite </button>
+     
         
         </div>
 
-
+ 
+        <button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">favourite </button>
 
 <div class="container"> 
         <h6>Please rate the recipe</h6>
@@ -344,12 +346,22 @@ $(function () {
  
 
  $(function () {
- $('.all').on("click",function(){
- const allId =$(this).attr("data-list");
+ $('.border').on("click",function(){
+ const allId =$(this).attr("data-border");
  console.log("this all" , this)
-//  alert("good chooice ! give me your rate")
+ $('.meals').html($ ('.meals_1' ).show(1000))
  })
 
   });
 
+
+
+  $(function () {
  
+    $('.category').on("click", function(){
+        const categoryId=$(this).attr("data-category")
+        console.log("no")
+        category.toggle($('#menu').show())
+    })
+     });
+   

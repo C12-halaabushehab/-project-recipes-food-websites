@@ -63,12 +63,12 @@ justify-content:space-around;
     border: solid  2px #888;
     border-radius: 10%;
     box-shadow: 8px 8px 8px rgba(120, 119, 119, 0.4);
-    transition: box-shadow 0.2s;
+    /* transition: box-shadow 0.01s; */
   
   width: 100%;
   padding: 20px 0px 50px 0px;
   margin: 30px 0;
-  /* background:url("854756446855978fa8b51c4b7fcacb91.jpg") gray 100% ; */
+  background:url("854756446855978fa8b51c4b7fcacb91.jpg") gray 100% ;
 
 } 
 
@@ -203,3 +203,76 @@ font-size: 30px;
 }
 
 
+
+#mainMenu {
+    display:grid;
+    grid-template-columns: auto auto auto ,minmax(200px ,1fr);
+    justify-content:space-around;
+        text-align: center;
+        border: solid  2px rgb(214, 164, 215);
+        border-radius: 10%;
+        box-shadow: 8px 8px 8px rgba(120, 119, 119, 0.4);
+      gap:5px;
+      width: 15%;
+      padding: 10px 0px 10px 0px;
+      margin: 15px 0;
+
+} 
+#mainDish{
+    display:grid;
+    grid-template-columns: auto auto auto ,minmax(200px ,1fr);
+    justify-content:space-around;
+        text-align: center;
+        border: solid  2px rgb(214, 164, 215);
+        border-radius: 10%;
+        box-shadow: 8px 8px 8px rgba(120, 119, 119, 0.4);
+      gap:5px;
+      width: 15%;
+      padding: 10px 0px 10px 0px;
+      margin: 15px 0;
+
+}
+
+#appetizers{
+    display:grid;
+    grid-template-columns: auto auto auto ,minmax(200px ,1fr);
+    justify-content:space-around;
+        text-align: center;
+        border: solid  2px rgb(214, 164, 215);
+        border-radius: 10%;
+        box-shadow: 8px 8px 8px rgba(120, 119, 119, 0.4);
+      gap:5px;
+      width: 15%;
+      padding: 10px 0px 10px 0px;
+      margin: 15px 0;
+
+}
+#Desserts {
+    display:grid;
+    grid-template-columns: auto auto auto ,minmax(200px ,1fr);
+    justify-content:space-around;
+        text-align: center;
+        border: solid  2px rgb(214, 164, 215);
+        border-radius: 10%;
+        box-shadow: 8px 8px 8px rgba(120, 119, 119, 0.4);
+      gap:5px;
+      width: 15%;
+      padding: 10px 0px 10px 0px;
+      margin: 15px 0;
+
+}
+
+#drinks{
+    display:grid;
+    grid-template-columns: auto auto auto ,minmax(200px ,1fr);
+    justify-content:space-around;
+        text-align: center;
+        border: solid  2px rgb(214, 164, 215);
+        border-radius: 10%;
+        box-shadow: 8px 8px 8px rgba(120, 119, 119, 0.4);
+      gap:5px;
+      width: 15%;
+      padding: 10px 0px 10px 0px;
+      margin: 15px 0;
+
+}
