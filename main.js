@@ -19,7 +19,7 @@ const search = $(`<div class="search_list"> <label for="search">البحث</labe
 
 mainType.append(search);
 
-const chooseYor_list = $(`<div></div>`);
+const chooseYor_list = $(`<div> <button id="fan_list"> fav list</button></div>`);
 chooseYor_list.addClass("choose_list");
 main.append(chooseYor_list);
 
@@ -134,7 +134,6 @@ mainRecipes.forEach((e, i) => {
   );
   mainType.append(thelist);
 });
-// console.log(mainRecipes[i].recipes[5])
 
 const onClickCategory = function (elem) {
   console.log(elem);
@@ -152,9 +151,11 @@ mainRecipes.forEach((e, i) => {
       $(`<button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">
                 favourite 
         </button>
+
+
         <div class="container"> 
-             <h6>Please rate the recipe</h6>
-        </div>      
+        </div>   
+                   <h4>Please rate the recipe</h4>
         <div class="star">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -164,42 +165,39 @@ mainRecipes.forEach((e, i) => {
          </div>   `);
 
     const container = $(`
-    <div  id="all${i}"class="all" data-list="list${i}"> </div>  
+    
+    <div id="show"  > </div>
+    
    `);
+    const detailes = $(`<div class="detailes">
+    <h1>${e.name}</h1>
+    <img src= "${e.img}"/> 
+<p>${e.Ingredients}</p>
+<p>${e.discription}</p>
 
-   imageDiv.on("click", function (){
-        console.log(this);
-      
-    })
+    </div>`);
+    imageDiv.on("click", function () {
+      $(".meals").hide();
+      console.log(e);
+      $(`.main`).append(detailes);
+    });
 
-    container.append(imageDiv)
-    container.append(content)
+    container.append(imageDiv);
+    container.append(content);
     meals.append(container);
-
-    /*   $(".border").on("click", function () {
-      const allId = $(e).attr("data-border");
-      $(".meals").html($(".meals").add(e));
-      console.log();
-    }); */
-  });
-});
-
-$(function () {
-  const your_fav_list = [];
-  $(".fav").on("click", function () {
-    const favId = $(this).attr("data-fav");
-    console.log(your_fav_list);
-    your_fav_list.push($("data-border"));
-    console.log(your_fav_list);
-    console.log("hi");
   });
 });
 
 // $(function () {
-//   $(".category").on("click", function () {
-//     const categoryId = $(this).attr("data-category");
-//     console.log(this);
-//     $(".category").html(mainMenu.show(1000).toggel());
+//   const your_fav_list = [];
+//   $(".fav").on("click", function () {
+//     const favId = $(this).attr("data-fav");
+//     console.log(your_fav_list);
+//     your_fav_list.push($("data-border"));
+//     console.log(your_fav_list);
+//     console.log("hi");
+// const showRecipes=$(`<div id="showRecipes"> </div>`)
+
 //   });
 // });
 
