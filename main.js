@@ -27,12 +27,36 @@ const meals = $(`<div></div>`);
 meals.addClass("meals");
 main.append(meals);
 
-
-
 const tag_tape = $(`<div></div>`);
 tag_tape.addClass("tag_tape");
-tag_tape.text( "https://info.wafa.ps/ar_page.aspx?id=2459  ")
 main.append(tag_tape);
+
+const meals_1 = $(".meals_1");
+const meals_2 = $(".meals_2");
+const meals_3 = $(".meals_3");
+const meals_4 = $(".meals_4");
+const meals_5 = $(".meals_5");
+const meals_6 = $(".meals_6");
+const meals_7 = $(".meals_7");
+const meals_8 = $(".meals_8");
+const meals_9 = $(".meals_9");
+const meals_10 = $(".meals_10");
+const meals_11 = $(".meals_11");
+const meals_12 = $(".meals_12");
+$(function () {
+  meals_1.hide();
+  meals_2.hide();
+  meals_3.hide();
+  meals_4.hide();
+  meals_5.hide();
+  meals_6.hide();
+  meals_7.hide();
+  meals_8.hide();
+  meals_9.hide();
+  meals_10.hide();
+  meals_11.hide();
+  meals_12.hide();
+});
 
 const mainRecipes = [
   {
@@ -272,7 +296,9 @@ If you need a paragraph on a specific topic, feel free to ask!`,
 mainRecipes.forEach((ele, i) => {
   console.log(ele);
 
-  const thelist = $(`<div  id="category${i}" class="category data-category ="category${i}  ">${ele.category}</div>`);
+  const thelist = $(
+    `<div  id="category${i}" class="category data-category ="category${i}  ">${ele.category}</div>`
+  );
   mainType.append(thelist);
 });
 
@@ -290,59 +316,40 @@ allrecipes.forEach((ele, i) => {
 
 
 <div class="container"> 
-        <h6>rateing</h6>
+        <h6>Please rate the recipe</h6>
 <div class="star">
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star"></span>
 <span class="fa fa-star"></span>
-        </div> 
-        
-     
-        
+
         
         </div>  
  `);
   meals.append(all_list);
 });
 
+$(function () {
+  const your_fav_list = [];
+  $(".fav").on("click", function () {
+    const favId = $(this).attr("data-fav");
+    console.log(this);
+    your_fav_list.push("hello");
+    console.log(your_fav_list);
+    console.log("hi");
+  });
+});
 
-$(function(){
-    const your_fav_list= [];
-$('.fav').on('click' ,function(){
-const favId=$(this).attr('data-fav');
-console.log(this)
-your_fav_list.push("hello")
-console.log(your_fav_list)
-console.log("hi")
+ 
 
+ $(function () {
+ $('.all').on("click",function(){
+ const allId =$(this).attr("data-list");
+ console.log("this all" , this)
+//  alert("good chooice ! give me your rate")
+ })
 
+  });
 
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
-
-
+ 
