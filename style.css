@@ -19,9 +19,9 @@ body {
   margin-top: 40px;
   padding: 50px;
   /* background-color: rgb(232, 232, 234); */
-  font-size: 10px;
+  font-size: 30px;
   font-weight: 900;
-  gap: 40px;
+  gap: 80px;
   border-bottom:  2px solid #888;
   /* background:url("854756446855978fa8b51c4b7fcacb91.jpg") gray 100% ; */
 }
@@ -44,12 +44,12 @@ body {
 .category {
     display: grid;
   padding: 30px 30px 30px 20px;
-  border: 1px solid black;
+  border: 1px solid #888;
 
-  border-radius: 50%;
-  box-shadow: 0px 3px 5px rgba(120, 119, 119, 0.4);
-  color: rgb(0, 0, 0);
-  background-color: rgb(214, 164, 215);
+  border-radius: 30%;
+  box-shadow: 0px 3px 15px rgba(211, 13, 221, 0.83);
+  transition: box-shadow 0.1s;
+  opacity: 0.5;
 }
  
  .meals { 
@@ -68,7 +68,7 @@ justify-content:space-around;
   width: 100%;
   padding: 20px 0px 50px 0px;
   margin: 30px 0;
-  background:url("854756446855978fa8b51c4b7fcacb91.jpg") gray 100% ;
+  /* background:url("854756446855978fa8b51c4b7fcacb91.jpg") gray 100% ; */
 
 } 
 
@@ -263,7 +263,7 @@ font-size: 30px;
 }
 
 #drinks{
-    display:grid;
+ display:grid;
     grid-template-columns: auto auto auto ,minmax(200px ,1fr);
     justify-content:space-around;
         text-align: center;
