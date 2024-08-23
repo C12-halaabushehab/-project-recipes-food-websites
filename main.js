@@ -7,20 +7,27 @@ const mainType = $(`<div></div>`);
 mainType.addClass("main_Type");
 main.append(mainType);
 
-var img_food = $("<img  />", {
-  id: "logo_food",
-  src: "f2b032a5464f8b065c4d7a3148f6e040.jpg",
-});
-img_food.appendTo($("#logo_food"));
-mainType.append(img_food);
+// var img_food = $("<img  />", {
+//   id: "logo_food",
+//   src: "f2b032a5464f8b065c4d7a3148f6e040.jpg",
+// });
+// img_food.appendTo($("#logo_food"));
+// mainType.append(img_food);
 
 const search = $(`<div class="search_list"> <label for="search">البحث</label>
-    <input class="search" id="search"  type="search" placeholder="ابحث عن وصفة"></input> <button id="looking"  >enter</button>   <ul id="result"></ul></div>`);
+
+
+    <input id="search"  type="text" placeholder="ابحث عن وصفة"    ></input>
+    
+
+    
+    <button id="looking"  onclick="search()"  >enter</button>  
+     <ul id="result"></ul></div>`);
 
 mainType.append(search);
 
 const chooseYor_list = $(
-  `<div> <button id="fan_list"> fav list</button></div>`
+  `<div> <button class="fav_list"> fav list</button></div>`
 );
 chooseYor_list.addClass("choose_list");
 main.append(chooseYor_list);
@@ -211,11 +218,30 @@ mainRecipes.forEach((e, i) => {
     `<div  id="category${i}" class="category" data-category ="category${i}">${e.category}</div>`
   );
   mainType.append(thelist);
+
+  const filter_det=$(`<div><ul> ${e.recipes}</ul></div>`)
+  thelist.on("click",function(){
+    meals.hide()
+
+  console.log(e)
+  $(`.main`).append(filter_det);
+  
+  })
+  
+  
+
+
+
+
+
 });
 
-const onClickCategory = function (elem) {
-  console.log(elem);
-};
+
+
+
+
+
+const myfav=[];
 
 mainRecipes.forEach((e, i) => {
   mainRecipes[i].recipes.forEach((e, i) => {
@@ -242,6 +268,11 @@ mainRecipes.forEach((e, i) => {
             <span class="fa fa-star"></span>
          </div>   `);
 
+         
+
+
+
+
     const container = $(`
     
     <div id="show"  > </div>
@@ -252,29 +283,44 @@ mainRecipes.forEach((e, i) => {
     <img  class="detailes_img"src= "${e.img}"/> 
 <p   class="detailes_p1" >${e.Ingredients}</p>
 <p   class="detailes_p2"   >${e.discription}</p>
-
     </div>`);
     imageDiv.on("click", function () {
       $(".meals").hide();
       console.log(e);
       $(`.main`).append(detailes);
+
     });
+    const  yourlist=$(`<div class="yourlist"> "hh"</div>`)
+  content.on("click",function(){
+      console.log(e);
+    myfav.push(e);
+    console.log(myfav)
+
+    $('.fav_list').on("click" , ()=>{
+      meals.hide()
+  $(`.main`).append(yourlist);
+      })
+    })
+
+
+
+
+
+
+
 
     container.append(imageDiv);
     container.append(content);
     meals.append(container);
+
   });
+
+  
 });
 
-// const showRecipes=$(`<div id="showRecipes"> </div>`)
 
-// $(function () {
-//   $(".#search").keyup(function () {
-//     $("#result").html("");
-//     const searchFeild = $("#search").val();
-//     const exp = new RegExp(searchFeild, i);
-//     $.getJSON("data.json", function (data) {
-//       $.each(data, function (key, value) {});
-//     });
-//   });
-// });
+
+
+
+
+
