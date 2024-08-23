@@ -26,11 +26,13 @@ const search = $(`<div class="search_list"> <label for="search">البحث</labe
 
 mainType.append(search);
 
+
+
 const chooseYor_list = $(
-  `<div> <button class="fav_list"> fav list</button></div>`
-);
-chooseYor_list.addClass("choose_list");
-main.append(chooseYor_list);
+    `<div> 
+  <i  id="fav_list" class="fa fa-heart" style="font-size:48px;color:red"></i></div>`
+  );
+ search.append(chooseYor_list);
 
 const meals = $(`<div></div>`);
 meals.addClass("meals");
@@ -219,6 +221,10 @@ mainRecipes.forEach((e, i) => {
   );
   mainType.append(thelist);
 
+
+
+
+
   const filter_det=$(`<div><ul> ${e.recipes}</ul></div>`)
   thelist.on("click",function(){
     meals.hide()
@@ -227,12 +233,6 @@ mainRecipes.forEach((e, i) => {
   $(`.main`).append(filter_det);
   
   })
-  
-  
-
-
-
-
 
 });
 
@@ -241,7 +241,12 @@ mainRecipes.forEach((e, i) => {
 
 
 
+
+
+
+
 const myfav=[];
+
 
 mainRecipes.forEach((e, i) => {
   mainRecipes[i].recipes.forEach((e, i) => {
@@ -254,33 +259,71 @@ mainRecipes.forEach((e, i) => {
     const content =
       $(`<button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">
                 favourite 
-        </button>
+        </button>`);
+ 
+  const rating=$(`
+        <div class="rating_box"> 
+       <h4>Please rate the recipe</h4>
+       <div class="stars">
+      <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+         </div> 
+         </div>  `);
 
 
-        <div class="container"> 
-        </div>   
-                   <h4>Please rate the recipe</h4>
-        <div class="star">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-         </div>   `);
+
+
+
 
          
+
+console.log($('.stars'))
+function rating_1(){
+    rating.on("click",function(){
+        console.log("sta")
+    })
+    
+        const container = $(`
+        <div id="show"  > </div>
+    
+    
+       `);
+    
+
+}
+rating_1();
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
     const container = $(`
-    
     <div id="show"  > </div>
-    
+
+
    `);
+
+    
+
     const detailes = $(`<div class="detailes">
     <h1  class="detailes_h"  >${e.name}</h1>
-    <img  class="detailes_img"src= "${e.img}"/> 
+    <img  class="detailes_img" src= "${e.img}"/> 
 <p   class="detailes_p1" >${e.Ingredients}</p>
 <p   class="detailes_p2"   >${e.discription}</p>
     </div>`);
@@ -290,17 +333,20 @@ mainRecipes.forEach((e, i) => {
       $(`.main`).append(detailes);
 
     });
-    const  yourlist=$(`<div class="yourlist"> "hh"</div>`)
+    const  yourlist=$(`<div class="yourlist">${e.name} 
+        </div>`)
   content.on("click",function(){
       console.log(e);
     myfav.push(e);
     console.log(myfav)
 
-    $('.fav_list').on("click" , ()=>{
+    $('#fav_list').on("click" , ()=>{
       meals.hide()
   $(`.main`).append(yourlist);
       })
+
     })
+
 
 
 
@@ -311,12 +357,38 @@ mainRecipes.forEach((e, i) => {
 
     container.append(imageDiv);
     container.append(content);
+    container.append(rating)
     meals.append(container);
 
   });
 
-  
+
+
+
+
+
+
 });
+
+
+
+
+
+// const ss=$(`<p></p>`)
+
+// $(`.stars span`).on("click", function(){
+
+//         console.log(i)
+        
+//    })
+
+
+// $( '.rating').forEach((star, index1) => {
+//      star.on("click", () => {
+//  console.log("h")
+//      })
+//  });
+
 
 
 
