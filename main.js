@@ -12,21 +12,25 @@ main.append(mainType);
 // img_food.appendTo($("#logo_food"));
 // mainType.append(img_food);
 
+
+const chooseYor_list = $(
+    `<div> 
+    <i  id="fav_list" class="fa fa-heart" style="font-size:50px;color:rgba(32, 181, 158, 0.83)"  ></i></div>`
+  );
+mainType.append(chooseYor_list);
+
+
+
+
 const search = $(`
-    <label for="search">البحث</label>
-<input type="search" id="search" name="search" placeholder="ابحث عن الوصفه"/><br>
-    
+      <label for="search">البحث</label>
+<input type="search" id="search" name="search"  placeholder="ابحث عن الوصفه"  style="font-size:30px;" /><br>
+  
     `);
 
 mainType.append(search);
 
 
-
-const chooseYor_list = $(
-    `<div> 
-    <i  id="fav_list" class="fa fa-heart" style="font-size:20px;color:red"  ></i></div>`
-  );
-  search.append(chooseYor_list);
 
 
 
@@ -277,48 +281,50 @@ mainRecipes.forEach((e, i) => {
         </button>`);
     const rating = $(`
         <div class="rating_box"> 
-      
+         <h4>Please rate the recipe</h4>
        <div class="stars">
-      <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-          <h4>Please rate the recipe</h4>
+     <span class="star" data-value="1">&#9733;</span>
+    <span class="star" data-value="2">&#9733;</span>
+    <span class="star" data-value="3">&#9733;</span>
+    <span class="star" data-value="4">&#9733;</span>
+    <span class="star" data-value="5">&#9733;</span>
+       </div>
          </div>  `);
 
    const container = $(`
     <div id="show"  > </div>  `);
 
-    //التقيم
+
     $(function () {
       // for(let i=0 ;i<=start_1.length ,i++){
-      const startttttt=[];
-   rating.on("click", () => {
-startttttt.push("d")
-console.log("D")
-console.log(i)
-if(startttttt.length=5){}
-// const starId=$(e).attr('data-star')
-// alert(starId )
-// rating.addClass.add("active")
+      const array_star=[];
+      console.log(i)
+      for(let i=0 ; i<6 ;i++){
+                    console.log(array_star)
 
+        rating.on("click", () => {
+           array_star.push("d")
+        //    rating.addClass(active)
+            console.log($('.star')[1])
+            // console.log("D")
+        
+            if(startttttt.length=5){}
       });
-      //             //     index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+      }
     });
 
 
-    // $(function () {
-    //     rating.on('click', function() {
-    //         console.log("gg")
-    //         console.log(i)
-    //       const selectedValue = $(this).data('value'); // Get the value of the clicked star
+ 
+    // $(document).ready(function() {
+    //     // Handle click on stars
+    //     $('.star').on('click', function() {
+    //         var selectedValue = $(this).data('value'); // Get the value of the clicked star
     
     //         // Remove active class from all stars
-    //       rating.removeClass('active');
+    //         $('.star').removeClass('active');
     
     //         // Add active class to the clicked star and all stars before it
-    //   rating.each(function() {
+    //         $('.star').each(function() {
     //             if ($(this).data('value') <= selectedValue) {
     //                 $(this).addClass('active');
     //             }
@@ -331,15 +337,12 @@ if(startttttt.length=5){}
 
 
 
-
-
-
     //هون فعلت كليك كل ما اكبس على صورة من الموجوده في الشاشه بيطلعلي التفاصيل الها
     const detailes = $(`<div class="detailes">
     <h1  class="detailes_h"  >${e.name}</h1>
     <img  class="detailes_img" src= "${e.img}"/> 
-<p class="detailes_p1" >${e.Ingredients}</p>
-<p class="detailes_p2"   >${e.discription}</p>
+<p class="detailes_p">${e.Ingredients}</p>
+<p class="detailes_p">${e.discription}</p>
     </div>`);
     imageDiv.on("click", function () {
       $(".meals").hide();
@@ -392,21 +395,21 @@ if(startttttt.length=5){}
 
         });
 //البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء 
-function filterItems() {
-    const inp=[];
-    let input = $('#searchInput').val();
-    mainRecipes.filter((m, i) => {
-console.log(m)
-    console.log( "myitem" ,m)
-        if (m.textContent.includes(input)) {
-          inp.push(input)
-          console.log(inp)
-        } else {
-           m.hide;
-        }
-    })
-}
-filterItems();
+// function filterItems() {
+//     const inp=[];
+//     let input = $('#searchInput').val();
+//     mainRecipes.filter((m, i) => {
+// console.log(m)
+//     console.log( "myitem" ,m)
+//         if (m.textContent.includes(input)) {
+//           inp.push(input)
+//           console.log(inp)
+//         } else {
+//            m.hide;
+//         }
+//     })
+// }
+// filterItems();
 
 
 

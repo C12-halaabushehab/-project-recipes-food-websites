@@ -67,13 +67,14 @@ body {
 }
 
 .category {
+  color: rgba(32, 181, 158, 0.83);
   display: grid;
   padding: 30px 30px 30px 20px;
-  border: 1px solid #888;
+  border: 1px solid #666;
 
   border-radius: 30%;
-  background-color: rgb(248, 248, 248);
-  box-shadow: 0px 3px 15px rgba(211, 13, 221, 0.83);
+  background-color: #ccc;
+  box-shadow: 0px 3px 15px rgba(32, 181, 158, 0.83);
   transition: box-shadow 0.1s;
 
   /* opacity: 0.5; */
@@ -98,7 +99,7 @@ body {
 }
 
 .img_size:hover {
-  box-shadow: 0px 3px 15px rgba(211, 13, 221, 0.83);
+  box-shadow: 15px 15px 15px rgba(32, 181, 158, 0.83)  ;
   transition: box-shadow 0.1s;
 }
 
@@ -108,7 +109,7 @@ body {
   height: 200px;
   border: none;
   border-radius: 50%;
-  padding: 10px;
+  padding: 20px;
 }
 
 .img_size {
@@ -129,11 +130,6 @@ body {
   text-align: center;
 }
 
-#fav_list {
-  margin: 0px 80px 0px 0px;
-  box-shadow: 2px 2px 2px rgb(248, 248, 248);
-  transition: box-shadow 0.1s;
-}
 
 h6 {
   color: #888;
@@ -150,53 +146,51 @@ h6 {
 }
 
 .detailes {
-  margin-top: 40px;
   display: flex;
-  text-align: cenater;
   flex-direction: column;
-  /* align-items: center; */
-  justify-content: space-between;
-  font-size: xx-large;
-  border: solid 0.5px #7aafc1;
-  border-radius: 10%;
-  padding: 20px 20px 20px 20px;
-  background-color: rgb(248, 248, 248);
+  align-items: center;
+  text-align: justify;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ccc;
 }
-
 .detailes_img:hover {
-  box-shadow: 0px 3px 15px rgba(211, 13, 221, 0.83);
+  box-shadow: 0px 3px 15px rgba(32, 181, 158, 0.83);
   transition: box-shadow 0.1s;
 }
-
 .detailes_img {
-  border: 6px solid rgb(174, 112, 187);
-  border-radius: 20%;
-  box-shadow: 8px 8px 8px rgba(120, 119, 119, 0.9);
-  margin-bottom: 2px;
-  height: 50%;
-  width: 50%;
+  width: 100%;
+  max-width: 400px; 
+  margin-bottom: 20px;
+  border-radius: 8px;
 }
-
 .detailes_h {
-  padding: 20px 20px;
+  font-size: 5em;
+  margin-bottom: 20px;
   text-align: center;
-  font-size: xxx-large;
-  font-weight: bolder;
+}
+.detailes_p {
+  font-size: 3em;
+  line-height: 1.6;
+  text-align: justify;
+
 }
 
-.detailes_p1 {
-  font-size: 30px;
-  border: solid 3px #666;
-  border-radius: 10%;
-  background-color: rgb(221, 187, 219);
+@media (min-width: 768px) {
+  .content-block {
+      flex-direction: row; /* Align elements horizontally on larger screens */
+      text-align: left;
+  }
 }
 
-.detailes_p2 {
-  font-size: 30px;
-  border: solid 3px #666;
-  border-radius: 10%;
-  background-color: rgb(221, 187, 219);
-}
+
+
+
+
+
+
+
 
 .dish {
   margin: 10px;
@@ -220,35 +214,48 @@ flex-direction: column;
 gap: .8px;
 font-size: 30px;
 
+
 } 
 
 input:hover{
-  box-shadow: 0px 3px 5px rgba(211, 13, 221, 0.83);
+  box-shadow: 0px 3px 5px rgba(32, 181, 158, 0.83);
   transition: box-shadow 0.1s;
-  background-color:  rgba(211, 13, 221, 0.83);
+  background-color:  #999;
 
+}  
+
+
+.rating_box{
+  border: 2px solid #666;
+
+}
+.star{
+color:#ccc;
+margin: 50px auto;
+font-size: 30px;
+padding: 6px;
+transition: 0.6s;
+padding-bottom: 40px;
+}
+
+
+
+.star:hover{
+  color:gold;
+}
+
+
+.cliced-star {
+color: rgb(234, 25, 25);
 } 
 
-
-.star {
-  font-size: 2em;
-  color: grey;
-  cursor: pointer;
-}
-
-.star.active {
-  color: gold;
-}
-
-
-/* h4 {
-  font-size: 22px;
+ h4 {
+  margin-top: 30px;
+  font-size: 12px;
   color: #dadada;
   font-weight: 500;
-  margin-bottom: 20px;
   text-align: center;
-} */
-
+} 
 
 
 @media screen and (max-width: 1000px) {
@@ -266,19 +273,51 @@ input:hover{
 
 
 .tag{
-  grid-template-columns: auto auto auto, minmax(200px, 1fr);
+  /* grid-template-columns: auto auto auto, minmax(200px, 1fr); */
 
   display: flex;
+  justify-content: center;
+  text-align: center;
 gap:60px;
 border-top: 8px #888 solid;
 }
 
 .end{
-  background-color:#fff;
+  text-align: center;
+  width: 100%;
+  background-color:#ccc;
   font:bold 14px;
   color:#1E88E5;
   width:100%;
   height:auto;
   padding:1%;
   border-top:1px solid #1E88E5;
+}
+
+.fav{
+  margin: 20px 20px 20px 20px;
+size: 50px;
+}
+.fav:hover {
+  padding: 10px 20px;
+  border-radius: 12px; /* Rounded corners */
+  border: 2px solid rgba(32, 181, 158, 0.83);
+  background-color: rgba(32, 181, 158, 0.83);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+margin: 20px 20px 20px 20px;
+}
+
+#fav_list{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; 
+  border: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+
 }
