@@ -12,15 +12,11 @@ main.append(mainType);
 // img_food.appendTo($("#logo_food"));
 // mainType.append(img_food);
 
-
 const chooseYor_list = $(
-    `<div> 
+  `<div> 
     <i  id="fav_list" class="fa fa-heart" style="font-size:50px;color:rgba(32, 181, 158, 0.83)"  ></i></div>`
-  );
+);
 mainType.append(chooseYor_list);
-
-
-
 
 const search = $(`
       <label for="search">البحث</label>
@@ -29,13 +25,6 @@ const search = $(`
     `);
 
 mainType.append(search);
-
-
-
-
-
-
-
 
 const meals = $(`<div></div>`);
 meals.addClass("meals");
@@ -67,19 +56,14 @@ const tag = $(` <div class="tag"> <div class="inf">
 </p></div>
     </div>
     `);
-body.append(tag)
+body.append(tag);
 
 const end = $(
-    `<div class ='end'>
+  `<div class ='end'>
     © 2024  love your culture . All rights reserved.
   </div>`
-  );
-  body.append(end);
-
-
-
-
-
+);
+body.append(end);
 
 const mainRecipes = [
   {
@@ -239,9 +223,6 @@ const mainRecipes = [
   },
 ];
 
-
-
-
 mainRecipes.forEach((e, i) => {
   const thelist = $(
     `<div  id="category${i}" class="category" data-category ="category${i}">${e.category}</div>`
@@ -255,10 +236,7 @@ mainRecipes.forEach((e, i) => {
     console.log(e);
     $(`.main`).append(filter_det);
   });
-
 });
-
-
 
 const myfav = [];
 
@@ -269,11 +247,6 @@ mainRecipes.forEach((e, i) => {
                 <img  class="img_size" src= "${e.img}"/> 
             <h3 class="names"> ${e.name} </h3> 
       </div>`);
-
-
-
-
-
 
     const content =
       $(`<button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">
@@ -291,38 +264,36 @@ mainRecipes.forEach((e, i) => {
        </div>
          </div>  `);
 
-   const container = $(`
+    const container = $(`
     <div id="show"  > </div>  `);
-
 
     $(function () {
       // for(let i=0 ;i<=start_1.length ,i++){
-      const array_star=[];
-      console.log(i)
-      for(let i=0 ; i<6 ;i++){
-                    console.log(array_star)
+      const array_star = [];
+      console.log(i);
+      for (let i = 0; i < 6; i++) {
+        console.log(array_star);
 
         rating.on("click", () => {
-           array_star.push("d")
-        //    rating.addClass(active)
-            console.log($('.star')[1])
-            // console.log("D")
-        
-            if(startttttt.length=5){}
-      });
+          array_star.push("d");
+          //    rating.addClass(active)
+          console.log($(".star")[1]);
+          // console.log("D")
+
+          if ((startttttt.length = 5)) {
+          }
+        });
       }
     });
 
-
- 
     // $(document).ready(function() {
     //     // Handle click on stars
     //     $('.star').on('click', function() {
     //         var selectedValue = $(this).data('value'); // Get the value of the clicked star
-    
+
     //         // Remove active class from all stars
     //         $('.star').removeClass('active');
-    
+
     //         // Add active class to the clicked star and all stars before it
     //         $('.star').each(function() {
     //             if ($(this).data('value') <= selectedValue) {
@@ -334,10 +305,15 @@ mainRecipes.forEach((e, i) => {
 
 
 
+//تجربة localstorage
 
-
+//    let name=localStorage.getItem("name")
+//     alert(name)
+// localStorage.setItem( "name","hala")
 
     //هون فعلت كليك كل ما اكبس على صورة من الموجوده في الشاشه بيطلعلي التفاصيل الها
+
+
     const detailes = $(`<div class="detailes">
     <h1  class="detailes_h"  >${e.name}</h1>
     <img  class="detailes_img" src= "${e.img}"/> 
@@ -348,20 +324,15 @@ mainRecipes.forEach((e, i) => {
       $(".meals").hide();
       console.log(e);
       $(`.main`).append(detailes);
-//هون كل مشان ارجع للصفحه الرئيسية بدون ريفرش او شي تاني 
+      //هون كل مشان ارجع للصفحه الرئيسية بدون ريفرش او شي تاني
       detailes.on("click", function () {
-        detailes.hide()
+        detailes.hide();
         $(".meals").show();
-
+      });
     });
-});
-
-
-
 
     //هون عم بشغل قائمة المفضله
     const working = () => {
-    
       const yourlist = $(`
     <button class="delet">deledt</button>
         `);
@@ -370,51 +341,45 @@ mainRecipes.forEach((e, i) => {
         myfav.push(e);
         console.log(myfav);
 
-        //هون عملت كليك كل ما اكبس على االقلب بطلع قائمة الاشياء المفضلة الي اخترتها
+        //تطبيق local storge 
+        storgetask();
         $("#fav_list").on("click", () => {
-
           meals.hide(500);
           $(`.main`).append(imageDiv);
 
           $(`.delet`).on("click", () => {
-            console.log("K")
+            console.log("K");
             myfav.forEach((toDelete, i) => {
               if (e === toDelete) {
                 myfav.splice(i, 1);
               }
             });
-          $(`.main`).append(imageDiv,content );
+            $(`.main`).append(imageDiv, content);
           });
-          //هون بدي اعمل لما اكبس مرتين وهي بداخل صفحة fav list 
-         // انو يطلعها من هناك 
+          //هون بدي اعمل لما اكبس مرتين وهي بداخل صفحة fav list
+          // انو يطلعها من هناك
           $("#fav_list").on(" dblclick", () => {
             myfav.splice(i, 1);
-            imageDiv.hide()
+            imageDiv.hide();
+          });
         });
-
-
-        });
-//البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء 
-// function filterItems() {
-//     const inp=[];
-//     let input = $('#searchInput').val();
-//     mainRecipes.filter((m, i) => {
-// console.log(m)
-//     console.log( "myitem" ,m)
-//         if (m.textContent.includes(input)) {
-//           inp.push(input)
-//           console.log(inp)
-//         } else {
-//            m.hide;
-//         }
-//     })
-// }
-// filterItems();
-
-
-
+        //البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
+        // function filterItems() {
+        //     const inp=[];
+        //     let input = $('#searchInput').val();
+        //     mainRecipes.filter((m, i) => {
+        // console.log(m)
+        //     console.log( "myitem" ,m)
+        //         if (m.textContent.includes(input)) {
+        //           inp.push(input)
+        //           console.log(inp)
+        //         } else {
+        //            m.hide;
+        //         }
+        //     })
+        // }
+        // filterItems();
       });
-
 
       container.append(imageDiv);
       container.append(content);
@@ -423,40 +388,15 @@ mainRecipes.forEach((e, i) => {
     };
     working();
 
-
-
     container.append(imageDiv);
     container.append(content);
     container.append(rating);
     meals.append(container);
   });
 });
-
-
-
-
-// console.log($(".stars"));
-
-// const ss=$(`<p></p>`)
-
-// $(`.stars span`).on("click", function(){
-
-//         console.log(i)
-
-//    })
-
-// $( '.rating').forEach((star, index1) => {
-//      star.on("click", () => {
-//  console.log("h")
-//      })
-//  });
-
-// $(function(){
-
-// })
-// $(document). ready(function(){
-//     $('stars'). click(function(){
-//     $('li i'). removeClass("active");
-//     $(this). addClass("active");
-//     });
-//     });
+ ///==================storge function==================
+function storgetask(){
+    let myfavstring=JSON.stringify(myfav)
+    // console.log(myfavstring)
+localStorage.setItem( "myfav",myfavstring)
+}
