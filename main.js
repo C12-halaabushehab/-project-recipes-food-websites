@@ -36,8 +36,45 @@ const chooseYor_list = $(
 const meals = $(`<div></div>`);
 meals.addClass("meals");
 main.append(meals);
-const tag_tape = $(`<div></div>`);
-tag_tape.addClass("tag_tape");
+
+const tag = $(` <div class="tag"> <div class="inf">
+
+      <h1>للتواصل : </h1>
+    <p>العنوان : الاردن-عمان</p>
+    <p>رقم الهاتف : 06123421</p>
+    <p>الموبايل : 076543234</p>
+    <p>البريد الالكتروني: traditional_food@hotmail.com</p>
+
+    </div> 
+     <div class="social" >
+    
+ <h1> مواقع التواصل الاجتماعي :</h1>
+<p>Facebook: Facebook Page</p>
+<p>Twitter: Twitter Profile</p>
+<p>LinkedIn: LinkedIn Profile</p>
+<p>Instagram: Instagram Profile</p>
+    </div>
+<div class="link">
+ <h1> روابط :</h1>
+<p>About Us: About Us Page</p>
+<p>Privacy Policy: Privacy Policy Page
+</p>
+<p>Terms of Service: Terms of Service Page
+</p></div>
+    </div>
+    `);
+body.append(tag)
+
+const end = $(
+    `<div class ='end'>
+    © 2024  love your culture . All rights reserved.
+  </div>`
+  );
+  body.append(end);
+
+
+
+
 
 
 const mainRecipes = [
@@ -219,13 +256,6 @@ mainRecipes.forEach((e, i) => {
 
 
 
-
-
-
-
-
-
-
 const myfav = [];
 
 mainRecipes.forEach((e, i) => {
@@ -235,34 +265,40 @@ mainRecipes.forEach((e, i) => {
                 <img  class="img_size" src= "${e.img}"/> 
             <h3 class="names"> ${e.name} </h3> 
       </div>`);
+
+
+
+
+
+
     const content =
       $(`<button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">
                 favourite 
         </button>`);
     const rating = $(`
         <div class="rating_box"> 
-       <h4>Please rate the recipe</h4>
+      
        <div class="stars">
       <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
-         </div> 
+          <h4>Please rate the recipe</h4>
          </div>  `);
 
-
-    const container = $(`
-    <div id="show"  > </div>
-    `);
+   const container = $(`
+    <div id="show"  > </div>  `);
 
     //التقيم
     $(function () {
       // for(let i=0 ;i<=start_1.length ,i++){
+      const startttttt=[];
    rating.on("click", () => {
-    alert(star)
- rating. addClass("active");
-
+startttttt.push("d")
+console.log("D")
+console.log(i)
+if(startttttt.length=5){}
 // const starId=$(e).attr('data-star')
 // alert(starId )
 // rating.addClass.add("active")
@@ -271,6 +307,24 @@ mainRecipes.forEach((e, i) => {
       //             //     index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
     });
 
+
+    // $(function () {
+    //     rating.on('click', function() {
+    //         console.log("gg")
+    //         console.log(i)
+    //       const selectedValue = $(this).data('value'); // Get the value of the clicked star
+    
+    //         // Remove active class from all stars
+    //       rating.removeClass('active');
+    
+    //         // Add active class to the clicked star and all stars before it
+    //   rating.each(function() {
+    //             if ($(this).data('value') <= selectedValue) {
+    //                 $(this).addClass('active');
+    //             }
+    //         });
+    //     });
+    // });
 
 
 
@@ -337,7 +391,7 @@ mainRecipes.forEach((e, i) => {
 
 
         });
-
+//البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء 
 function filterItems() {
     const inp=[];
     let input = $('#searchInput').val();
