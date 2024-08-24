@@ -14,20 +14,17 @@ main.append(mainType);
 // img_food.appendTo($("#logo_food"));
 // mainType.append(img_food);
 
-const search = $(`<div class="search_list"> <label for="search">البحث</label>
-
-
-    <input id="searchInput"  type="text" placeholder="ابحث عن وصفة" onkeyup="filterItems()    ></input>
-
-
-
-     <ul id="result"></ul></div>`);
+const search = $(`
+    <label for="search">Search </label>
+<input type="search" id="search" name="search" placeholder="ابحث عن الوصفه"/><br>
+    
+    `);
 
 mainType.append(search);
 
 const chooseYor_list = $(
   `<div> 
-  <i  id="fav_list" class="fa fa-heart" style="font-size:80px;color:red"  ></i></div>`
+  <i  id="fav_list" class="fa fa-heart" style="font-size:20px;color:red"  ></i></div>`
 );
 search.append(chooseYor_list);
 
@@ -208,32 +205,26 @@ const mainRecipes = [
   },
 ];
 
-
-
-
-
-
-
-
-
-
-
-
 mainRecipes.forEach((e, i) => {
   const thelist = $(
     `<div  id="category${i}" class="category" data-category ="category${i}">${e.category}</div>`
   );
   mainType.append(thelist);
 
-  const filter_det = $(`<div><ul> ${e.recipes}</ul></div>`);
+
+
+  const filter_det = $(`<div><ul> ${e.recipes.img}</ul></div>`);
   thelist.on("click", function () {
     meals.hide();
 
     console.log(e);
     $(`.main`).append(filter_det);
   });
-
 });
+
+
+
+
 
 
 
@@ -259,21 +250,46 @@ mainRecipes.forEach((e, i) => {
         <div class="rating_box"> 
        <h4>Please rate the recipe</h4>
        <div class="stars">
-      <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
+      <i data-star="star1"   id="star1" class="fa fa-star"  ></i>
+    <i data-star="star2"   id="star2" class="fa fa-star"></i>
+    <i data-star="star3"    id="star3" class="fa fa-star"></i>
+    <i data-star="star4"   id="star4" class="fa fa-star"></i>
+    <i data-star="star5"   id="star5"  class="fa fa-star"></i>
          </div> 
          </div>  `);
 
-
     const container = $(`
-    <div id="show"  > </div>
+    <div id="show"  > </div> `);
 
 
-   `);
 
+
+
+    //التقيم
+    $(function () {
+      // for(let i=0 ;i<=start_1.length ,i++){
+   rating.on("click", () => {
+    alert(star)
+ rating. addClass("active");
+
+// const starId=$(e).attr('data-star')
+// alert(starId )
+// rating.addClass.add("active")
+ 
+      });
+      //             //     index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+    });
+
+
+
+ 
+
+
+
+
+
+
+    //هون فعلت كليك كل ما اكبس على صورة من الموجوده في الشاشه بيطلعلي التفاصيل الها
     const detailes = $(`<div class="detailes">
     <h1  class="detailes_h"  >${e.name}</h1>
     <img  class="detailes_img" src= "${e.img}"/> 
@@ -284,34 +300,41 @@ mainRecipes.forEach((e, i) => {
       $(".meals").hide();
       console.log(e);
       $(`.main`).append(detailes);
+//هون كل مشان ارجع للصفحه الرئيسية بدون ريفرش او شي تاني 
+      detailes.on("click", function () {
+        detailes.hide()
+        $(".meals").show();
+
     });
+});
 
 
-    
+
+    //هون عم بشغل قائمة المفضله
     const working = () => {
-      const yourlist = $(`<div class="yourlist">${e.name}</div>
+      const yourlist = $(`
     <button class="delet">deledt</button>
         `);
 
       content.on("click", function () {
         myfav.push(e);
         console.log(myfav);
-
+        //هون عملت كليك كل ما اكبس على االقلب بطلع قائمة الاشياء المفضلة الي اخترتها
         $("#fav_list").on("click", () => {
+    
           meals.hide(500);
-          $(`.main`).append(yourlist);
-
-          $(`.delet`).on("click", () => {
-            console.log("K")
-            myfav.forEach((toDelete, i) => {
-              if (e === toDelete) {
-                myfav.splice(i, 1);
-              }
-            });
-           toDelete.remove();
+          $(`.main`).append(imageDiv,content );
           });
+          //هون بدي اعمل لما اكبس مرتين وهي بداخل صفحة fav list 
+         // انو يطلعها من هناك 
+        //   $("#fav_list").on(" dblclick", () => {
+        //     myfav.splice(i, 1);
+        //     imageDiv.hide()
+        // });
+
+
         });
-      });
+    
 
       container.append(imageDiv);
       container.append(content);
@@ -319,8 +342,6 @@ mainRecipes.forEach((e, i) => {
       meals.append(container);
     };
     working();
-
-
 
     container.append(imageDiv);
     container.append(content);
@@ -331,40 +352,9 @@ mainRecipes.forEach((e, i) => {
 
 
 
-function filterItems() {
-    let input = $('#searchInput').val();
-    mainRecipes.forEach((m, i) => {
-
-    console.log( "myitem" ,m)
-        if (m.textContent.includes(input)) {
-           m.show ;
-        } else {
-           m.hide;
-           
-        }
-    })
-
-}
-filterItems();
-
-
-
-// console.log($(".stars"));
-
-// const ss=$(`<p></p>`)
-
-// $(`.stars span`).on("click", function(){
-
-//         console.log(i)
-
-//    })
-
-// $( '.rating').forEach((star, index1) => {
-//      star.on("click", () => {
-//  console.log("h")
-//      })
-//  });
-
-// $(function(){
-
-// })
+// $(document). ready(function(){
+//     $('stars'). click(function(){
+//     $('li i'). removeClass("active");
+//     $(this). addClass("active");
+//     });
+//     });
