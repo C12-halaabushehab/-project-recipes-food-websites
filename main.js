@@ -12,10 +12,17 @@ main.append(mainType);
 // img_food.appendTo($("#logo_food"));
 // mainType.append(img_food);
 
+
+
+
+
 const chooseYor_list = $(
   `<div> 
     <i  id="fav_list" class="fa fa-heart" style="font-size:50px;color:rgba(32, 181, 158, 0.83)"  ></i></div>`
 );
+
+
+
 mainType.append(chooseYor_list);
 
 const search = $(`
@@ -65,6 +72,16 @@ const end = $(
 );
 body.append(end);
 
+
+
+
+
+
+
+
+
+
+
 const mainRecipes = [
   {
     category: "الوصفات الرئيسية",
@@ -82,7 +99,7 @@ const mainRecipes = [
       },
       {
         name: " المسخن",
-        img: "مسخن.jpg",
+        img: "مسخن.webp  ",
         Ingredients: ` المكونات <br>  <br> دجاجتان مقطعتان إلى أنصاف.<br> بصلة متوسطة مقطعة إلى أرباع  . عودان من القرفة.<br> عشر حبات من الهيل الصحيح. ثلاث قطع من ورق الغار. <br> أربعة كيلو غرامات من البصل المفروم خشناً  .<br> ثلاثة أكواب من زيت الزيتون.<br> ملعقة كبيرة من الملح. ثلاث ملاعق كبيرة من السماق. <br>ملعقة صغيرة من الفلفل الأسود المطحون.<br> ثمانية أرغفة من الخبز الإيراني.<br> لبن زبادي <br>
 `,
         discription: `  <br>  طريقة التحضير <br><br>وضع الدجاج في قدر وغمره بالماء ورفعه على نار متوسطة حتى يغلي، <br>والتخلص من الرغوة. إضافة ورق الغار والقرفة والفلفل والهيل والبصل والملح والفلفل، <br>وترك الدجاج مدة نصف ساعة حتى ينضج. وضع البصل في قدر متوسط ورفعه على نار متوسطة<br> وتحريك البصل مدة دقيقتين، وإضافة إليه الزيت وتغطية القدر، وترك البصل حتى ينضج لمدة ثلث ساعة،<br> ثم التتبيل بالفلفل والملح والسماق. وضع قطع الدجاج في صينية فرن ودهنا بزيت قلي البصل، ثم إدخال صينية الدجاج أسفل شواية الفرن وتحميرها حتى تتحمر قطع الدجاج.<br> تغليف صينية فرن بورق الألمنيوم ثم وضع رغيف خبز في الصينية<br> وثنيه ثم غمس أطرافه بزيت قلي البصل، وفرد الرغيف ثم توزيع البصل المقلي عليه، ورش السماق والصنوبر عليه،<br> ثم تحمير الصينية بشواية الفرن لمدّة تتراوح من ثلاث إلى أربع دقائق فقط.<br> وضع الدجاج والأرغفة في طبق التقديم، وتقديم اللبن الزبادي مع المسخن.`,
@@ -154,7 +171,7 @@ const mainRecipes = [
     recipes: [
       {
         name: " الكنافة",
-        img: " كنافة.jpg   ",
+        img: "  للللل.webp  ",
         Ingredients: `  المكوّنات<br>  نصف كيلوغرام من الكنافة.<br> خمسمئة غرام من الجبن العكاوي.<br> ثلاثمئة غرام من جبن الموزاريلا.<br> كوب وربع من السمن المذاب. ربع كوب من السكر. <br>ملعقة صغيرة من ماء الزهر.<br> ملعقة صغيرة من ماء الورد.<br> نصف ملعقة صغيرة من صبغة الكنافة البودرة.<br> ثلاث ملاعق كبيرة من الزبدة.
 `,
         discription: ` طريقة التحضير <br> تقطيع الجبن العكاوي، ونقعه مع تغيير الماء؛ للتخلّص من الملح. نقع جبن الموزاريلا بالماء، وتغيير الماء؛ <br>للتخلص من الملح. تصفية الجبن جيداً، وإضافة ماء الورد والزهر، والسكر، وتركه في مصفاة. خلط الكنافة مع كوب من السمن مع تفتيتها قدر الامكان. إحضار صينية مستديرة بقياس 22 سنتمتراً. وضع السمن والصبغة في الصينية، وفرك السمن مع اللون ليتغطى تماماً،<br> وتوزيعه<br> في قاع وجوانب الصينية. <br>وضع ثلاثة أرباع مقدار الكنافة في قاع الصينية، وترك حوالي سنتيمتر على الحواف من ارتفاع الكنافة. توزيع الجبن والضغط عليها، لتصبح بطبقة متساوية. <br>وضع قطعة من ورق المطبخ على سطح الجبن، والضغط عليها لامتصاص الماء الزائد من الجبن، ثمّ التخلّص من ورق المطبخ. توزيع بقية الكنافة على السطح، والضغط عليها بخفّة، ثمّ توزيع بقية السمن.<br> وضع الصينية في الفرن على درجة حرارة 200، و لمدّة 45 دقيقة، حتى تتحمّر الجوانب. ترك الصينية تبرد لبضع دقائق، ثمّ قلبها على طبق التقديم، <br>وتوزيع القطر والفستق.`,
@@ -203,7 +220,7 @@ const mainRecipes = [
     recipes: [
       {
         name: " شؤاب اللوز",
-        img: "عصير اللوز.webp  ",
+        img: " لل.webp ",
         Ingredients: ` المكوّنات <br> ثمانية أكواب من الحليب الطازج.<br> كوبان من اللوز غير المقشور.<br> نصف كوب من اللوز المطحون.<br> ستة أكواب من السكر الناعم. نصف ملعقة صغيرة من ماء الزهر.<br> نصف ملعقة صغيرة من ماء الورد.<br> مكوّنات شراب اللوز: ثلاثة أكواب من الحليب الطازج البارد. كوب من مكعبات الثلج.`,
         discription: `  طريقة التحضير <br> نغسل جيداً شرش الحلاوة،<br> ونضعها في قدرٍ مغسولٍ مع خمسمئة ملليلترٍ من الماء<br>، ونترك المواد على نارٍ خفيفةٍ حتّى تصل كمية الماء المتبقية إلى مئة وخمسين ملليلتراً.<br> نخفق مئة وخمسين ملليلتراً من ماء شرش الحلاوة،<br> ثمّ نضيف إليها بالتدريج الحليب، وخلاصة اللوز،<br> وماء الزهر حتّى تتكوّن لدينا رغوةٌ ناعمةٌ وملساء وجامدة في نفس الوقت.<br> نضع في طبقٍ الحليب، والثلج، والمارزبان،<br> ونخفق جيداً حتّى يتكوّن خليطٌ متماسكٌ مع وجود رغوةٍ على الوجه. نصب الشراب في أكواب التقديم،<br> ونوزع فوقه رغوة الشرش.`,
       },
@@ -215,7 +232,7 @@ const mainRecipes = [
       },
       {
         name: "العرقسوس ",
-        img: " 879.webp  ",
+        img: "  للل.webp ",
         Ingredients: `لالمكوّنات  <br>ستة إلى ثمانية أكواب من الماء البارد.<br> كوب من عرق السوس المجفف. <br>ملعقة كبيرة من كربونات الصودا.`,
         discription: ` طريقة التحضير<br> وضع عرق السوس في وعاء مصنوع من الفخّار. إضافة ثلاث ملاعق كبيرة من الماء.<br> إضافة كربونات الصودا، ثمّ تقليب المزيج إلى أن تمتزج المكوّنات بشكل جيد، <br>ويصبح عرق السوس مبللاً وملتصقاً ببعضه البعض. تغطِية الوعاء باستخدام شاش نظيفة، ثمّ وضع الوعاء في مكان مشمس لمدّة تتراوح بين الساعة إلى ساعتين إلى أن يتخمر. وضع المزيج في قطع الشاش، <br>وربطها جيداً. <br>جلب طبقٍ عميقٍ، ووضع الماء البارد فيه، ثمّ وضع لفة عرق السوس به ونقعها لمدّة ساعة. إخراج اللفة من الوعاء الزجاجي.`,
       },
@@ -229,16 +246,34 @@ mainRecipes.forEach((e, i) => {
   );
   mainType.append(thelist);
 
-  const filter_det = $(`<div><ul> ${e.recipes.img}</ul></div>`);
+  const filter_det = $(`<div><ul> ${ JSON.stringify(mainRecipes)}
+  }</ul></div>`);
   thelist.on("click", function () {
     meals.hide();
-
     console.log(e);
     $(`.main`).append(filter_det);
   });
+
+  filter_det.on("click", function () {
+   filter_det.hide()
+    meals.show();
+ 
+  });
+
+
+
 });
 
 const myfav = [];
+//هون داله عكسية لما حولت الصفوفه الى سترنغ واستخدمتها هلا بدي ارجعها ل مصفوفه لاستخدمها هون 
+function getmyfavFromstorge(){
+let retrietmyfav=JSON.parse(localStorage.getItem("myfav"))
+if(retrietmyfav == null){
+    myfav=[]
+}else{
+    myfav=retrietmyfav
+}
+}
 
 mainRecipes.forEach((e, i) => {
   mainRecipes[i].recipes.forEach((e, i) => {
@@ -252,56 +287,30 @@ mainRecipes.forEach((e, i) => {
       $(`<button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">
                 favourite 
         </button>`);
-    const rating = $(`
-        <div class="rating_box"> 
-         <h4>Please rate the recipe</h4>
-       <div class="stars">
-     <span class="star" data-value="1">&#9733;</span>
-    <span class="star" data-value="2">&#9733;</span>
-    <span class="star" data-value="3">&#9733;</span>
-    <span class="star" data-value="4">&#9733;</span>
-    <span class="star" data-value="5">&#9733;</span>
-       </div>
-         </div>  `);
+        const rating = $(`
+            <div class="rating_box"> 
+             <h4>Please rate the recipe</h4>
+           <div class="stars">
+         <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+           </div>
+             </div>  `);
+           
 
     const container = $(`
     <div id="show"  > </div>  `);
 
-    $(function () {
-      // for(let i=0 ;i<=start_1.length ,i++){
-      const array_star = [];
-      console.log(i);
-      for (let i = 0; i < 6; i++) {
-        console.log(array_star);
 
-        rating.on("click", () => {
-          array_star.push("d");
-          //    rating.addClass(active)
-          console.log($(".star")[1]);
-          // console.log("D")
 
-          if ((startttttt.length = 5)) {
-          }
-        });
-      }
-    });
 
-    // $(document).ready(function() {
-    //     // Handle click on stars
-    //     $('.star').on('click', function() {
-    //         var selectedValue = $(this).data('value'); // Get the value of the clicked star
 
-    //         // Remove active class from all stars
-    //         $('.star').removeClass('active');
 
-    //         // Add active class to the clicked star and all stars before it
-    //         $('.star').each(function() {
-    //             if ($(this).data('value') <= selectedValue) {
-    //                 $(this).addClass('active');
-    //             }
-    //         });
-    //     });
-    // });
+
+
+
 
 
 
@@ -333,7 +342,7 @@ mainRecipes.forEach((e, i) => {
 
     //هون عم بشغل قائمة المفضله
     const working = () => {
-      const yourlist = $(`
+      const yourlist = $(`<div>   ${JSON.stringify(myfav)} </div>
     <button class="delet">deledt</button>
         `);
 
@@ -341,28 +350,36 @@ mainRecipes.forEach((e, i) => {
         myfav.push(e);
         console.log(myfav);
 
-        //تطبيق local storge 
+//كود ممكن يستخدم اكتر من مكان عملتو function 
         storgetask();
         $("#fav_list").on("click", () => {
           meals.hide(500);
           $(`.main`).append(imageDiv);
 
-          $(`.delet`).on("click", () => {
+   
+          $("#fav_list").on("click", () => {
+          
+meals.show();        
+
+
+
+
+          })
+
+imageDiv.on("click", () => {
             console.log("K");
             myfav.forEach((toDelete, i) => {
               if (e === toDelete) {
                 myfav.splice(i, 1);
               }
             });
-            $(`.main`).append(imageDiv, content);
           });
           //هون بدي اعمل لما اكبس مرتين وهي بداخل صفحة fav list
           // انو يطلعها من هناك
-          $("#fav_list").on(" dblclick", () => {
-            myfav.splice(i, 1);
-            imageDiv.hide();
           });
-        });
+     
+
+    });
         //البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
         // function filterItems() {
         //     const inp=[];
@@ -379,7 +396,7 @@ mainRecipes.forEach((e, i) => {
         //     })
         // }
         // filterItems();
-      });
+  
 
       container.append(imageDiv);
       container.append(content);
@@ -394,9 +411,52 @@ mainRecipes.forEach((e, i) => {
     meals.append(container);
   });
 });
+
+
+
+// صار عندي مشكلة في التقيم فوق  بسبب ترتيب append
+// عملت تقيم للصفحه بكل عام 
+
+const page_rating = $(`
+       <div class="rating_1">
+  <div class="rating">
+      <header>Give me your opinion on my website </header>
+      <div class="stars_1">
+      <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+    </div>  </div>`
+)
+
+ 
+$(function(){
+    $('.star').on('click', function() {
+         const choosethe_value = $(this).data('value'); 
+        $('.star').removeClass('active');
+        $('.star').each(function() {
+            if ($(this).data('value') <= choosethe_value) {
+                $(this).addClass('active');}});
+    });
+});
+
+main.append(page_rating)
+
+
  ///==================storge function==================
 function storgetask(){
     let myfavstring=JSON.stringify(myfav)
     // console.log(myfavstring)
 localStorage.setItem( "myfav",myfavstring)
 }
+
+function storgemainRecipestask(){
+    let  mainRecipesstring=JSON.stringify(mainRecipes)
+    // console.log(myfavstring)
+localStorage.setItem( "mainRecipes",myfavstring)
+}
+
+
+
