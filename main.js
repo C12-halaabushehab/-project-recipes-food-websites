@@ -1,16 +1,24 @@
-const main = $(`<div></div>`);
+// const top_page = $( `  <div class="overlay"><br>
+//   </div>  `);
+// body.append(top);
+
+
+const main = $(`<div>   
+  
+
+   <header >
+    <h1 class="site-name" >    دار الزيتون
+<br>
+        للوصفات التقليدية 
+ </h1>
+  
+  </header >`);
 main.addClass("main");
 const body = $("body");
 body.append(main);
 const mainType = $(`<div></div>`);
 mainType.addClass("main_Type");
 main.append(mainType);
-// var img_food = $("<img  />", {
-//   id: "logo_food",
-//   src: "f2b032a5464f8b065c4d7a3148f6e040.jpg",
-// });
-// img_food.appendTo($("#logo_food"));
-// mainType.append(img_food);
 
 
 
@@ -418,7 +426,7 @@ imageDiv.on("click", () => {
 const page_rating = $(`
     <div class="rating_1">
 <div class="rating">
-   <header>Give me your opinion on my website </header>
+   <header>  <h1 class="site-name" >  Give me your opinion on my website </h1> </header>
    <div class="stars_1">
    <span class="star" data-value="1">&#9733;</span>
      <span class="star" data-value="2">&#9733;</span>
@@ -440,7 +448,7 @@ $(function(){
  });
 });
 
-meals.append(page_rating)
+main.append(page_rating)
 
 
 
