@@ -14,11 +14,14 @@ main.append(mainType);
 
 
 
-
-
 const chooseYor_list = $(
   `<div> 
-    <i  id="fav_list" class="fa fa-heart" style="font-size:50px;color:rgba(32, 181, 158, 0.83)"  ></i></div>`
+    <i  id="fav_list" class="fa fa-heart" style="font-size:50px;color:rgba(32, 181, 158, 0.83)"  ></i>
+
+    
+    </div>
+    
+    `
 );
 
 
@@ -27,8 +30,10 @@ mainType.append(chooseYor_list);
 
 const search = $(`
       <label for="search">البحث</label>
-<input type="search" id="search" name="search"  placeholder="ابحث عن الوصفه"  style="font-size:30px;" /><br>
+<input type="search" id="search" name="search"  placeholder="ابحث عن الوصفه"  style="font-size:30px;"  title="Type in a name"   onkeyup="myFunction()"   /><br>
   
+
+
     `);
 
 mainType.append(search);
@@ -36,6 +41,8 @@ mainType.append(search);
 const meals = $(`<div></div>`);
 meals.addClass("meals");
 main.append(meals);
+
+
 
 const tag = $(` <div class="tag"> <div class="inf">
 
@@ -71,14 +78,6 @@ const end = $(
   </div>`
 );
 body.append(end);
-
-
-
-
-
-
-
-
 
 
 
@@ -242,27 +241,49 @@ const mainRecipes = [
 
 mainRecipes.forEach((e, i) => {
   const thelist = $(
-    `<div  id="category${i}" class="category" data-category ="category${i}">${e.category}</div>`
+    `<div  id="category" class="category" data-category ="category${i}">${e.category}</div>`
   );
   mainType.append(thelist);
 
-  const filter_det = $(`<div><ul> ${ JSON.stringify(mainRecipes)}
-  }</ul></div>`);
-  thelist.on("click", function () {
-    meals.hide();
-    console.log(e);
-    $(`.main`).append(filter_det);
-  });
 
-  filter_det.on("click", function () {
-   filter_det.hide()
-    meals.show();
+
+
+
  
-  });
+  
+  // البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
+  
+    $(function() {
+        $("#search").on("keyup", function() {
+            //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
+            const value = $(this).val();
+            $("#show div").filter(function() {
+                $(this).toggle($(this).text().indexOf(value) > -1);
+            });
+        });
+    });
+
 
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const myfav = [];
 //هون داله عكسية لما حولت الصفوفه الى سترنغ واستخدمتها هلا بدي ارجعها ل مصفوفه لاستخدمها هون 
@@ -302,13 +323,6 @@ mainRecipes.forEach((e, i) => {
 
     const container = $(`
     <div id="show"  > </div>  `);
-
-
-
-
-
-
-
 
 
 
@@ -380,22 +394,7 @@ imageDiv.on("click", () => {
      
 
     });
-        //البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
-        // function filterItems() {
-        //     const inp=[];
-        //     let input = $('#searchInput').val();
-        //     mainRecipes.filter((m, i) => {
-        // console.log(m)
-        //     console.log( "myitem" ,m)
-        //         if (m.textContent.includes(input)) {
-        //           inp.push(input)
-        //           console.log(inp)
-        //         } else {
-        //            m.hide;
-        //         }
-        //     })
-        // }
-        // filterItems();
+     
   
 
       container.append(imageDiv);
@@ -412,37 +411,51 @@ imageDiv.on("click", () => {
   });
 });
 
-
-
 // صار عندي مشكلة في التقيم فوق  بسبب ترتيب append
 // عملت تقيم للصفحه بكل عام 
 
+
 const page_rating = $(`
-       <div class="rating_1">
-  <div class="rating">
-      <header>Give me your opinion on my website </header>
-      <div class="stars_1">
-      <span class="star" data-value="1">&#9733;</span>
-        <span class="star" data-value="2">&#9733;</span>
-        <span class="star" data-value="3">&#9733;</span>
-        <span class="star" data-value="4">&#9733;</span>
-        <span class="star" data-value="5">&#9733;</span>
-      </div>
-    </div>  </div>`
+    <div class="rating_1">
+<div class="rating">
+   <header>Give me your opinion on my website </header>
+   <div class="stars_1">
+   <span class="star" data-value="1">&#9733;</span>
+     <span class="star" data-value="2">&#9733;</span>
+     <span class="star" data-value="3">&#9733;</span>
+     <span class="star" data-value="4">&#9733;</span>
+     <span class="star" data-value="5">&#9733;</span>
+   </div>
+ </div>  </div>`
 )
 
- 
+
 $(function(){
-    $('.star').on('click', function() {
-         const choosethe_value = $(this).data('value'); 
-        $('.star').removeClass('active');
-        $('.star').each(function() {
-            if ($(this).data('value') <= choosethe_value) {
-                $(this).addClass('active');}});
+ $('.star').on('click', function() {
+      const choosethe_value = $(this).data('value'); 
+     $('.star').removeClass('active');
+     $('.star').each(function() {
+         if ($(this).data('value') <= choosethe_value) {
+             $(this).addClass('active');}});
+ });
+});
+
+meals.append(page_rating)
+
+
+
+$(function() {
+    $(".category").on("click", function() {
+        console.log(this)
+        //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
+        const category = $(mainRecipes[1].recipes);
+        $("#category div").filter(function() {
+            $(mainRecipes[1].recipes).toggle($(mainRecipes[1].recipes).text().indexOf(category) > -1);
+        });
     });
 });
 
-main.append(page_rating)
+
 
 
  ///==================storge function==================
@@ -457,6 +470,5 @@ function storgemainRecipestask(){
     // console.log(myfavstring)
 localStorage.setItem( "mainRecipes",myfavstring)
 }
-
 
 
