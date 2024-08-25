@@ -50,15 +50,17 @@ body {
 
 
 header {
-  text-align: center;
-  padding: 50px 20px;
-     background:url("سيبسيب.webp") gray 100% ; */
+  /* display: flex; */
+  /* flex-direction: column; */
+/* text-align: center; */
+  /* padding: 50px 20px; */
+     background:url("سيبسيب.webp") gray 100% ; 
 
 }
 
 
 .site-name {
-  font-size: 35px;
+  font-size: 70px;
   color: #ffffff; 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
   font-weight: bolder;
@@ -276,7 +278,7 @@ input:hover{
 }  
 
 
-.rating_box{
+/* .rating_box{
   border: 2px solid #666;
 
 }
@@ -306,7 +308,7 @@ color: rgb(234, 25, 25);
   color: #dadada;
   font-weight: 500;
   text-align: center;
-} 
+}  */
 
 
 @media screen and (max-width: 1000px) {
@@ -325,10 +327,12 @@ color: rgb(234, 25, 25);
 
 .tag{
   /* grid-template-columns: auto auto auto, minmax(200px, 1fr); */
-
+width: 100%;
   display: flex;
   align-items: center;
-gap:60px;
+  justify-content: center;
+  text-align: center;
+gap:50px;
 border-top: 8px #888 solid;
 }
 
@@ -401,20 +405,22 @@ margin: 20px 20px 20px 20px;
 
 
 
+.modal{
 
+  width: auto;
 
-/* body >div{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content:center ;
 }
 
-.mylight{
-transform: scale(1.5);
-display: block;
+.star{
+  font-size: 40px;
+  color: gray;
+  cursor: pointer;
+}
 
+.star.selected{
+  color: gold;
+}
 
-} */
+.star.highlited:hover{
+  color: gold;
+}

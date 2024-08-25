@@ -1,18 +1,19 @@
-// const top_page = $( `  <div class="overlay"><br>
-//   </div>  `);
-// body.append(top);
-
 
 const main = $(`<div>   
   
-
    <header >
+   
+
+
+<button class="login">login</button>
+
     <h1 class="site-name" >    دار الزيتون
 <br>
         للوصفات التقليدية 
  </h1>
   
   </header >`);
+
 main.addClass("main");
 const body = $("body");
 body.append(main);
@@ -22,18 +23,34 @@ main.append(mainType);
 
 
 
+const login = $(`<div id="mymodal" class="modal" > 
+    
+    
+  <label >البريد الالكتروني</label><br>
+<input type="email">
+<label >كلمة المرور</label><br>
+<input type="password">
+<button>تسجيل الدخول</button><br>
+<a href="./register.html"> </a> 
+
+</div> `)
+
+
+body.append(login)
+// login.hide();
+
+
+
+
+
 const chooseYor_list = $(
   `<div> 
     <i  id="fav_list" class="fa fa-heart" style="font-size:50px;color:rgba(32, 181, 158, 0.83)"  ></i>
 
     
     </div>
-    
     `
 );
-
-
-
 mainType.append(chooseYor_list);
 
 const search = $(`
@@ -316,6 +333,15 @@ mainRecipes.forEach((e, i) => {
       $(`<button  class="fav" id ="addtofav${i}" data-fav="fav${i} ">
                 favourite 
         </button>`);
+
+
+
+
+
+
+
+
+
         const rating = $(`
             <div class="rating_box"> 
              <h4>Please rate the recipe</h4>
@@ -328,6 +354,54 @@ mainRecipes.forEach((e, i) => {
            </div>
              </div>  `);
            
+
+// هون ما عم يزبط الا على  rating  وانا ما بدي اياها 
+ const star_1=$('.stars span')
+ console.log(star_1)
+$('.star').on("mouseenter",function (){
+  let rate = $(this).data('value')
+  highlightStar (rate)
+
+})
+ 
+$(".stars").on('mouseleave',function(){
+  resetStars()
+  highlightStar ($('.star.selected').data('value'))
+})
+
+$('.star').on("click",function(){
+  let rate=$(this).data('value')
+// $('.star').removeClass('selected')
+$(this).addClass('selected')
+highlightStar (rate)
+ console.log('selected'+rate);
+ 
+
+
+})
+
+
+function highlightStar (rate){
+ $('.star').each(function(){
+  let starValue=$(this).data('value')
+  if(starValue <= rate){
+ $(this).addClass('highlited')  
+
+  }else{
+    $(this).removeClass('highlited')
+  }
+ 
+ })
+}
+
+function resetStars(){
+  $('.star').removeClass('highlited')
+}
+
+
+
+
+
 
     const container = $(`
     <div id="show"  > </div>  `);
@@ -364,7 +438,7 @@ mainRecipes.forEach((e, i) => {
 
     //هون عم بشغل قائمة المفضله
     const working = () => {
-      const yourlist = $(`<div>   ${JSON.stringify(myfav)} </div>
+      const yourlist = $(`<div> ${JSON.stringify(myfav)} </div>
     <button class="delet">deledt</button>
         `);
 
@@ -423,45 +497,63 @@ imageDiv.on("click", () => {
 // عملت تقيم للصفحه بكل عام 
 
 
-const page_rating = $(`
-    <div class="rating_1">
-<div class="rating">
-   <header>  <h1 class="site-name" >  Give me your opinion on my website </h1> </header>
-   <div class="stars_1">
-   <span class="star" data-value="1">&#9733;</span>
-     <span class="star" data-value="2">&#9733;</span>
-     <span class="star" data-value="3">&#9733;</span>
-     <span class="star" data-value="4">&#9733;</span>
-     <span class="star" data-value="5">&#9733;</span>
-   </div>
- </div>  </div>`
-)
+// const page_rating = $(`
+//     <div class="rating_1">
+// <div class="rating">
+//    <header>  <h1 class="site-name" >  هل يمكنك مساعدتنا بتقييم موقعنا؟
+//     </h1> </header>
+//    <div class="stars_1">
+//    <span class="star" data-value="1">&#9733;</span>
+//      <span class="star" data-value="2">&#9733;</span>
+//      <span class="star" data-value="3">&#9733;</span>
+//      <span class="star" data-value="4">&#9733;</span>
+//      <span class="star" data-value="5">&#9733;</span>
+//    </div>
+//  </div>  </div>`
+// )
 
 
-$(function(){
- $('.star').on('click', function() {
-      const choosethe_value = $(this).data('value'); 
-     $('.star').removeClass('active');
-     $('.star').each(function() {
-         if ($(this).data('value') <= choosethe_value) {
-             $(this).addClass('active');}});
- });
-});
+// $(function(){
+//  $('.star').on('click', function() {
+//       const choosethe_value = $(this).data('value'); 
+//      $('.star').removeClass('active');
+//      $('.star').each(function() {
+//          if ($(this).data('value') <= choosethe_value) {
+//              $(this).addClass('active');}});
+//  });
+// });
 
-main.append(page_rating)
+// main.append(page_rating)
 
 
 
-$(function() {
-    $(".category").on("click", function() {
-        console.log(this)
-        //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
-        const category = $(mainRecipes[1].recipes);
-        $("#category div").filter(function() {
-            $(mainRecipes[1].recipes).toggle($(mainRecipes[1].recipes).text().indexOf(category) > -1);
-        });
-    });
-});
+// $(function() {
+//     $(".category").on("click", function() {
+//         console.log(this)
+//         //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
+//         const category = $(mainRecipes[1].recipes);
+//         $("#category div").filter(function() {
+//             $(mainRecipes[1].recipes).toggle($(mainRecipes[1].recipes).text().indexOf(category) > -1);
+//         });
+//     });
+// });
+
+
+// $(function(){
+// $('.login').on("click",()=>{
+//   $(`.modal`).show()
+
+// console.log('hello')
+
+// })
+
+
+
+// })
+
+
+
+
 
 
 
