@@ -70,6 +70,7 @@ body.dark-mode{
 
 
 header {
+
   /* display: flex; */
   /* flex-direction: column; */
 /* text-align: center; */
@@ -80,6 +81,8 @@ header {
 
 
 .site-name {
+
+
   font-size: 70px;
   color: #ffffff; 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
@@ -114,6 +117,8 @@ h4 {
 }
 
 .main {
+
+
   display: grid;
   grid-template-columns: auto auto auto, minmax(200px, 1fr);
   padding: 50;
@@ -131,6 +136,7 @@ h4 {
   /* background:url(" 3f81ec2342ce64cf19fc3e579d6f1df8.jpg   ") gray 100% ; */
 }
 .main_Type {
+
   display: flex;
   align-items: center;
   margin-top: 40px;
@@ -369,11 +375,12 @@ border-top: 8px #888 solid;
 
 .fav{
   margin: 20px 20px 20px 20px;
-size: 50px;
+width: 60px;
+height: 40px;
+border-radius: 0px 50px 50px 0px;
 }
 .fav:hover {
   padding: 10px 20px;
-  border-radius: 12px; /* Rounded corners */
   border: 2px solid rgba(32, 181, 158, 0.83);
   background-color: rgba(32, 181, 158, 0.83);
   color: white;
@@ -381,6 +388,30 @@ size: 50px;
   cursor: pointer;
 margin: 20px 20px 20px 20px;
 }
+
+
+
+.del{
+  margin: 20px 20px 20px 20px;
+  width: 60px;
+  height: 40px;
+  border-radius: 50px 0px 0px 50px;
+
+  
+
+}
+.del:hover{
+  padding: 10px 20px;
+  border: 2px solid rgba(32, 181, 158, 0.83);
+  background-color: rgba(32, 181, 158, 0.83);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+margin: 20px 20px 20px 20px;
+
+}
+
+
 
 
 .rating {
@@ -482,12 +513,13 @@ margin: 20px 20px 20px 20px;
 .login {
 
   margin: 20px 20px 20px 20px;
-  width: 50%;
+  
+  width: 50px;
+  height: 25px;
 
 }
 .login:hover{
-  padding: 10px 20px;
-  border-radius: 12px; /* Rounded corners */
+  padding: 20px 20px;
   border: 2px solid rgba(32, 181, 158, 0.83);
   background-color: rgba(32, 181, 158, 0.83);
   color: white;
@@ -559,7 +591,7 @@ margin: 20px 20px 20px 20px;
 .b1{
   position:fixed;
   top: 1px;
-  right: 1400px;
+  right: 1425px;
   width:4%;
 
   font-size:20px;
@@ -577,12 +609,12 @@ margin: 20px 20px 20px 20px;
 .b2{
   position:fixed;
   top: 1px;
-  left:60px ;
+  left:100px ;
   width:4%;
   font-size:20px;
   border-radius: 0px  50px   50px 0px ;
   outline: none;
   background-color: #000000;
   border: 2px solid silver;
-  transition: 1s;
+    transition: 1s;
 }

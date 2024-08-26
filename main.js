@@ -24,7 +24,6 @@ const chooseYor_list = $(
   `<div> 
     <i  id="fav_list" class="fa fa-heart" style="font-size:50px;color:rgba(32, 181, 158, 0.83)"  ></i>
 
-    
     </div>
     `
 );
@@ -76,7 +75,7 @@ body.append(tag);
 
 const end = $(
   `<div class ='end'>
-    © 2024  love your culture . All rights reserved.
+    © 2024  love your culture . All rights reserved
   </div>`
 );
 body.append(end);
@@ -366,9 +365,7 @@ mainRecipes.forEach((e, i) => {
       </div>`);
 
 
-      const delet_fav= $(`<button  class="del" id ="del"  data-fav="del${i}" >
-        delet 
-        </button>`)
+   
 
 
     const add_fav =
@@ -377,7 +374,9 @@ mainRecipes.forEach((e, i) => {
         </button>
         `);
 
-
+        const delet_fav= $(`<button  class="del" id ="del"  data-fav="del${i}" >
+          delet 
+          </button>`)
 
         const rating = $(`
             <div class="rating_box"> 
@@ -505,22 +504,40 @@ meals.show()
 
     })
 
-
-
-    container.append(add_fav);
-    container.append(delet_fav)
       container.append(imageDiv);
-    ;
-
       container.append(rating);
       meals.append(container);
+      container.append(add_fav);
+      container.append(delet_fav)
     };
     working();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     container.append(imageDiv);
-    container.append(add_fav);
     container.append(rating);
     meals.append(container);
+    container.append(add_fav);
+    container.append(delet_fav)
+
   });
 });
 
@@ -659,7 +676,6 @@ mainType.append(welcome)
 //================================================================
 
 const dark_light=(`
-  <span class="btn_dark_1">Light/Dark  </span>
 
  <button class="b1">🌞</button>
 
