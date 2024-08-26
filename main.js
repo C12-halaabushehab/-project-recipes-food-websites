@@ -597,7 +597,7 @@ console.log("cansel")
 })
 
 
-
+//=======================تسجيل الدخول========================
 $(function(){
   const username=$('.user_0' )
   const password=$('.pass_0' )
@@ -653,17 +653,43 @@ mainType.append(welcome)
 }
 })
 
-
-
-
-
 })
 
 
+//================================================================
+
+const dark_light=(`
+  <span class="btn_dark_1">Light/Dark  </span>
+
+ <button class="b1">🌞</button>
+
+ <button class="b2">🌛</button>
+  `)
+
+main.append(dark_light)
 
 
 
 
+$(function(){
+
+$('.b1').on("click",()=>{
+$('body').css({
+'color':'black',
+'background':'white'
+})
+})
+$('.b2').on("click",()=>{
+
+  $('body').css({
+  'color':'white',
+  'background':'black'
+  })
+  })
+  
+
+
+})
 
 
 

@@ -1,6 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap")
 
 @media screen and (max-width: 1000px) {
   .item {
@@ -50,10 +50,16 @@ body {
   background-attachment: fixed; 
   background-repeat: no-repeat;
   background-color: #f4f4f4;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
 
 }
 
+body.dark-mode{
 
+  background-color: black;
+  color: white;
+}
 
 
 
@@ -550,3 +556,33 @@ margin: 20px 20px 20px 20px;
   font-size: 100px;
 }
 
+.b1{
+  position:fixed;
+  top: 1px;
+  right: 1400px;
+  width:4%;
+
+  font-size:20px;
+  border-radius: 50px  0px   0px 50px ;
+  outline: none;
+  background-color: #000000;
+  border: 2px solid silver;
+  transition: 1s;
+}
+
+.b1:hover , .b2:hover {
+  background-color: rgba(32, 181, 158, 0.83);
+}
+ 
+.b2{
+  position:fixed;
+  top: 1px;
+  left:60px ;
+  width:4%;
+  font-size:20px;
+  border-radius: 0px  50px   50px 0px ;
+  outline: none;
+  background-color: #000000;
+  border: 2px solid silver;
+  transition: 1s;
+}
