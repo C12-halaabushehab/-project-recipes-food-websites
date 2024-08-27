@@ -4,6 +4,7 @@ const main = $(`<div>
    <header ><button class="login" style="width:auto;"   >login</button><h1 class="site-name" >    دار الزيتون<br>
         للوصفات التقليدية 
  </h1>
+
   
   </header >`);
 
@@ -48,6 +49,8 @@ main.append(meals);
 const tag = $(` <div class="tag"> <div class="inf">
 
       <h1>للتواصل : </h1>
+
+      
     <p>العنوان : الاردن-عمان</p>
     <p>رقم الهاتف : 06123421</p>
     <p>الموبايل : 076543234</p>
@@ -75,6 +78,10 @@ body.append(tag);
 
 const end = $(
   `<div class ='end'>
+  
+
+
+
     © 2024  love your culture . All rights reserved
   </div>`
 );
@@ -366,20 +373,25 @@ mainRecipes.forEach((e, i) => {
 
 
    
-
+      console.log("index2" , mainRecipes[i].recipes.indexOf(this))
 
     const add_fav =
       $(`<button  class="fav" id ="fav"  data-fav="fav${i} ">
              add 
         </button>
         `);
-
         const delet_fav= $(`<button  class="del" id ="del"  data-fav="del${i}" >
           delet 
           </button>`)
 
+
+
+
+
+
         const rating = $(`
-            <div class="rating_box"> 
+              <div class="rating_box"> 
+
              <h4>Please rate the recipe</h4>
            <div class="stars">
          <span class="star" data-value="1">&#9733;</span>
@@ -387,23 +399,28 @@ mainRecipes.forEach((e, i) => {
         <span class="star" data-value="3">&#9733;</span>
         <span class="star" data-value="4">&#9733;</span>
         <span class="star" data-value="5">&#9733;</span>
-           </div>
-             </div>  `);
+           </div></div>
+               `);
            
 
 // هون ما عم يزبط الا على  rating  وانا ما بدي اياها 
- const star_1=$('.stars span')
+//  const star_1=$('.stars span')
 //  console.log(star_1)
-$('.star').on("mouseenter",function (){
-  let rate = $(this).data('value')
-  highlightStar (rate)
-
-})
+// star_1.on("mouseenter",function (){
+//   let rate = $(this).data('value')
+//   highlightStar (rate)
+// })
  
+
+
+
+
 $(".stars").on('mouseleave',function(){
   resetStars()
-  highlightStar ($('.star.selected').data('value'))
+  highlightStar ($('.star').data('value'))
 })
+
+
 
 $('.star').on("click",function(){
   let rate=$(this).data('value')
@@ -411,27 +428,37 @@ $('.star').on("click",function(){
 $(this).addClass('selected')
 highlightStar (rate)
 //  console.log('selected'+rate);
- 
-
-
 })
+
+
 
 function highlightStar (rate){
  $('.star').each(function(){
   let starValue=$(this).data('value')
   if(starValue <= rate){
  $(this).addClass('highlited')  
-
   }else{
     $(this).removeClass('highlited')
   }
- 
  })
-}
 
+
+
+}
 function resetStars(){
   $('.star').removeClass('highlited')
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -471,38 +498,47 @@ function resetStars(){
 
     //هون عم بشغل قائمة المفضله
     const working = () => {
-      const yourlist = $(`<div> ${JSON.stringify(myfav)} </div>
-    <button class="delet">deledt</button>
-        `);
+      const yourlist = $(`<div>   ${e} </div> `);
 
         add_fav.on("click", function () {
           console.log(e)
         myfav.push(e);
-        // console.log( "this",this);
-        // console.log(myfav)
+        //
 //كود ممكن يستخدم اكتر من مكان عملتو function 
-  
         $("#fav_list").on("click", () => {
           meals.hide(500);
+//           myfav.forEach((dish)=>{
+// console.log("dish",dish)
+//           })
+//هون لما ارجع لازم اعمل refresh
           $(`.main`).append(imageDiv);
           $("#fav_list").on("click", () => {
 meals.show()        
 
           })
+
+
+
+
         });
      
     });
 
 
+    delet_fav.on("click", function () {
+      console.log(this)
+          const index= myfav.indexOf(this)
+          console.log(index)
+            if(index !== -1)
+            myfav.slice( index,1)
+            console.log(index)
+      
+            console.log(myfav)
+      
+          })
+      
 
-  delet_fav.on("click", function () {
-      console.log( "this del",this);
-      console.log("hh")
-      myfav.slice(0,1)
-    
-      console.log(myfav)
 
-    })
 
       container.append(imageDiv);
       container.append(rating);
@@ -546,7 +582,8 @@ meals.show()
 
 
  const page_rating = $(`
-  <header>  <h1 class="site-name" >  معلومه اضيفها هون عن الموقع 
+  <header>  <h1 class="site-name" >  "في زعتر بلادي وسماقها، طعم الحنين ينساب من الأطباق،
+وفي خبز الطابون تُكتب حكايا أجدادنا، عشق الأرض والميراث."
     </h1> </header>
  `)
 
@@ -706,6 +743,7 @@ $('.b2').on("click",()=>{
 
 
 })
+
 
 
 
