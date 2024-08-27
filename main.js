@@ -1,6 +1,7 @@
-const cont =$('')
+// const cont =$('new_mainRecipes');
+// $(function(){
 
-
+// })
 
 const main = $(`<div>   
   
@@ -257,80 +258,29 @@ mainRecipes.forEach((e, i) => {
 </div>`);
   $(function () {
     thelist.on("click", function () {
-      $(".meals").empty()
+      $(".meals").empty();
       let dish = $(this).data("value");
-      console.log(dish)
-      console.log(e)
-iteration_function(mainRecipes[dish])
-// mainRecipes.filter((select,i)=>{
-// console.log( "select",select)
-// // if ( select.includes(category)){
-
-// if ( select.includes(category)){
-//   meals.hide(500);
-//       $(`.main`).append(mainRecipes_show);
-
-// }
-
-// })
-    
+      console.log(dish);
+      console.log(e);
+      iteration_function(mainRecipes[dish]);
     });
-  });
-
-  // هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
-  //  console.log(mainRecipes[0])
-  // mainRecipes.forEach((dish ,i)=>{
-  // console.log($(this))
-//   })
- });
-
-
-
-
-
-
-
-//اعملللها ادخال من اول وجديد  لاعمللها عرض
-/* <p id="result"></p> */
-
-
-
-// البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
-$(function myFunction() {
-  $("#search").on("keyup", function () {
-    let value = $(this).val();
- const search_Data=  mainRecipes[0].recipes.filter( (elm ,i) =>{
-console.log(elm)
-return elm.name.includes( value)
-
-  });
-  console.log(search_Data)
-  iteration_function(search_Data)
   });
 });
 
+// البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
 
-// function filterArray() {
-//   const input = $('#search').value;
-//   const resultElement = $('#result');
-  
-//   // تحقق مما إذا كان العنصر موجودًا في المصفوفة
-//   if (mainRecipes.includes(input)) {
-//       resultElement.text( `Item found: ${input}` ) 
-//   } else {
-//       resultElement.html('Item not found' ) 
-//   }
-// }
-
-
-
-
-
-
-
+$(function myFunction() {
+  $("#search").on("keyup", function () {
+    //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
+    const value = $(this).val();
+    $("#show div").filter(function () {
+      $(this).toggle($(this).text().indexOf(value) > -1);
+    });
+  });
+});
 
 const login_list = [];
-const myfav = [];
+let myfav = [];
 
 //هون داله عكسية لما حولت الصفوفه الى سترنغ واستخدمتها هلا بدي ارجعها ل مصفوفه لاستخدمها هون
 // function getmyfavFromstorge() {
@@ -341,8 +291,8 @@ const myfav = [];
 //     myfav = retrietmyfav;
 //   }
 //
-const iteration_function =(arr)=>{
-// mainRecipes.forEach((m, i) => {
+const iteration_function = (arr) => {
+  // mainRecipes.forEach((m, i) => {
   arr.recipes.forEach((e, i) => {
     // console.log("INDEX", mainRecipes[i].recipes.indexOf());
 
@@ -358,7 +308,7 @@ const iteration_function =(arr)=>{
              add 
         </button>
         `);
-    const delet_fav = $(`<button  class="del" id ="del"  data-fav="del${i}" >
+    const delet_fav = $(`<button  class="del" id =${i}  data-fav="${i}" >
           delet 
           </button>`);
 
@@ -374,14 +324,6 @@ const iteration_function =(arr)=>{
         <span class="star" data-value="5">&#9733;</span>
            </div></div>
                `);
-              
-    // هون ما عم يزبط الا على  rating  وانا ما بدي اياها
-    //  const star_1=$('.stars span')
-    //  console.log(star_1)
-    // star_1.on("mouseenter",function (){
-    //   let rate = $(this).data('value')
-    //   highlightStar (rate)
-    // })
 
     $(".stars").on("mouseleave", function () {
       resetStars();
@@ -413,7 +355,7 @@ const iteration_function =(arr)=>{
     const container = $(`
     <div id="show"  > </div>  `);
 
-    //تجربة localstorage
+    // تجربة localstorage
 
     //    let name=localStorage.getItem("name")
     //     alert(name)
@@ -430,6 +372,7 @@ const iteration_function =(arr)=>{
     imageDiv.on("click", function () {
       $(".meals").hide();
       console.log(e);
+
       $(`.main`).append(detailes);
       //هون كل مشان ارجع للصفحه الرئيسية بدون ريفرش او شي تاني
       detailes.on("click", function () {
@@ -444,6 +387,8 @@ const iteration_function =(arr)=>{
       add_fav.on("click", function () {
         console.log(e);
         myfav.push(e);
+        console.log("myfav", myfav);
+
         let myfavstring = JSON.stringify(myfav);
         localStorage.setItem("myfav", myfavstring);
         //كود ممكن يستخدم اكتر من مكان عملتو function
@@ -455,21 +400,6 @@ const iteration_function =(arr)=>{
           });
         });
       });
-
-      delet_fav.on("click", function (k) {
-        console.log(k);
-        const index = myfav.indexOf(e);
-        console.log(k);
-        if (index !== -1) {
-          myfav.slice(index, 1);
-
-          console.log(myfav)
-        }
-        let myfavstring = JSON.stringify(myfav);
-        localStorage.setItem("myfav", myfavstring);
-        console.log(index);
-        console.log(myfav);
-      });
     };
     working();
 
@@ -479,12 +409,31 @@ const iteration_function =(arr)=>{
     container.append(add_fav);
     container.append(delet_fav);
   });
-// });
-}
-iteration_function(mainRecipes[0])
-iteration_function(mainRecipes[1])
-iteration_function(mainRecipes[2])
-iteration_function(mainRecipes[3])
+};
+iteration_function(mainRecipes[0]);
+iteration_function(mainRecipes[1]);
+iteration_function(mainRecipes[2]);
+iteration_function(mainRecipes[3]);
+
+$(`.del`).on("click", function (e) {
+  console.log(e.target.id);
+
+  //   const index = myfav.indexOf(e);
+  //  console.log(index)
+
+  let arr = myfav.filter((element, i) => {
+    console.log(element);
+    console.log(myfav[e.target.id]);
+
+    return myfav[e.target.id].name !== element.name;
+  });
+  console.log(arr);
+
+  let myfavstring = JSON.stringify(myfav);
+  localStorage.setItem("myfav", myfavstring);
+  // console.log(index);
+  // console.log(myfav);
+});
 // صار عندي مشكلة في التقيم فوق  بسبب ترتيب append
 // عملت تقيم للصفحه بكل عام
 
@@ -629,20 +578,9 @@ $(function () {
 
 ///==================storge function==================
 
-// function storgelogin(){
-//   let login_liststring=JSON.stringify(login_list)
-//   // console.log(myfavstring)
-// localStorage.setItem( "myfav",login_liststring)
-// }
-// storgelogin();
-
-// $(function() {
-//     $(".category").on("click", function() {
-//         console.log(this)
-//         //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
-//         const category = $(mainRecipes[1].recipes);
-//         $("#category div").filter(function() {
-//             $(mainRecipes[1].recipes).toggle($(mainRecipes[1].recipes).text().indexOf(category) > -1);
-//         });
-//     });
-// });
+function storgelogin() {
+  let login_liststring = JSON.stringify(login_list);
+  // console.log(myfavstring)
+  localStorage.setItem("myfav", login_liststring);
+}
+storgelogin();
