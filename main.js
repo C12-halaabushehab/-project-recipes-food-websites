@@ -32,6 +32,8 @@ mainType.append(chooseYor_list);
 
 const search = $(`
       <label for="search">البحث</label>
+        <a href="#"><i class="fa fa-search"></i></a> 
+
 <input type="search" id="search" name="search"  placeholder="ابحث عن الوصفه"  style="font-size:30px;"  title="Type in a name"   onkeyup="myFunction()"   /><br>
   
 
@@ -54,7 +56,9 @@ const tag = $(` <div class="tag"> <div class="inf">
     <p>العنوان : الاردن-عمان</p>
     <p>رقم الهاتف : 06123421</p>
     <p>الموبايل : 076543234</p>
-    <p>البريد الالكتروني: traditional_food@hotmail.com</p>
+
+    <p>          <a href="#"><i class="fa fa-envelope"></i></a> 
+       البريد الالكتروني: traditional_food@hotmail.com</p>
 
     </div> 
      <div class="social" >
@@ -248,6 +252,8 @@ const mainRecipes = [
 ];
 
 mainRecipes.forEach((e, i) => {
+
+
   const thelist = $(
     `<div  id="category" class="category" data-value ="category${i}">${e.category}</div>`
   );
@@ -319,9 +325,8 @@ thelist.on("click", function() {
     // });
 
 
-    $(function() {
+    $(function myFunction() {
       $("#search").on("keyup", function() {
-          //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
           const value = $(this).val();
           $("#show div").filter(function() {
               $(this).toggle($(this).text().indexOf(value) > -1);
@@ -353,6 +358,8 @@ thelist.on("click", function() {
 
 const login_list =[]
 const myfav = [];
+
+
 //هون داله عكسية لما حولت الصفوفه الى سترنغ واستخدمتها هلا بدي ارجعها ل مصفوفه لاستخدمها هون 
 function getmyfavFromstorge(){
 let retrietmyfav=JSON.parse(localStorage.getItem("myfav"))
@@ -363,8 +370,13 @@ if(retrietmyfav == null){
 }
 }
 
-mainRecipes.forEach((e, i) => {
+mainRecipes.forEach((m, i) => {
   mainRecipes[i].recipes.forEach((e, i) => {
+
+    console.log( "INDEX" , mainRecipes[i].recipes.indexOf())
+
+
+
     const imageDiv =
       $(`<div class="border" id="border${i}"  data-border="border${i}"> 
                 <img  class="img_size" src= "${e.img}"/> 
@@ -373,7 +385,7 @@ mainRecipes.forEach((e, i) => {
 
 
    
-      console.log("index2" , mainRecipes[i].recipes.indexOf(this))
+      // console.log("index2" , mainRecipes[i].recipes.indexOf(this))
 
     const add_fav =
       $(`<button  class="fav" id ="fav"  data-fav="fav${i} ">
@@ -383,7 +395,6 @@ mainRecipes.forEach((e, i) => {
         const delet_fav= $(`<button  class="del" id ="del"  data-fav="del${i}" >
           delet 
           </button>`)
-
 
 
 
@@ -496,76 +507,49 @@ function resetStars(){
       });
     });
 
+
+
+
+
+
+
+    
     //هون عم بشغل قائمة المفضله
     const working = () => {
-      const yourlist = $(`<div>   ${e} </div> `);
 
+      const yourlist = $(`<div>   ${e} </div> `);
         add_fav.on("click", function () {
           console.log(e)
         myfav.push(e);
-        //
+          let myfavstring=JSON.stringify(myfav)
+      localStorage.setItem( "myfav",myfavstring)
 //كود ممكن يستخدم اكتر من مكان عملتو function 
         $("#fav_list").on("click", () => {
           meals.hide(500);
-//           myfav.forEach((dish)=>{
-// console.log("dish",dish)
-//           })
-//هون لما ارجع لازم اعمل refresh
           $(`.main`).append(imageDiv);
           $("#fav_list").on("click", () => {
 meals.show()        
-
           })
-
-
-
-
         });
-     
     });
 
-
-    delet_fav.on("click", function () {
-      console.log(this)
-          const index= myfav.indexOf(this)
+ imageDiv.on("click", function (k) {
+      console.log(k)
+          const index= myfav.indexOf(k)
           console.log(index)
             if(index !== -1)
             myfav.slice( index,1)
+
+
+            let myfavstring=JSON.stringify(myfav)
+            localStorage.setItem( "myfav",myfavstring)
             console.log(index)
-      
             console.log(myfav)
-      
           })
-      
-
-
-
-      container.append(imageDiv);
-      container.append(rating);
-      meals.append(container);
-      container.append(add_fav);
-      container.append(delet_fav)
     };
     working();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
     
     container.append(imageDiv);
@@ -611,16 +595,28 @@ meals.show()
 
  const login = $(`<div id="mymodal" class="modal" > 
   <div class="content_animate" method="post" >
-    <img src="https://via.placeholder.com/50" alt="Login Icon">
+    <img class="img_modal" src="avatar-3814049_1280.webp">
    <div class="login_inf">
-<label  >البريد الالكتروني</label><br>
-<input class="user_0"   type="email">
+<label  > 👤اسم المستخدم:</label><br>
+<input class="user_0"   type="text">
 <p class="error" id="error_user"   display =" none" >username!!! </p>
 
-<label >كلمة المرور</label><br>
+<label >🔑:كلمة المرور</label><br>
 <input class="pass_0"  type="password">
 <p class="error" id="error_pass"  display =" none"  >  password !!!</p>
 <button type="submit" class="user_btn">تسجيل الدخول</button><br>
+ <div class="col">
+        <a href="#" class="fb btn" >
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+         </a>
+  <br>
+  <br>
+        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+          </i> Login with Google
+        </a>
+      </div>
+
+
 <label >remmber me </label><br>
 <input type="checkbox" checked="checked" name="remember> 
 <a href="./register.html"> </a> 
@@ -693,17 +689,19 @@ else{
 
 console.log(memory)
 login_list.push(memory)
-console.log(login_list)
-storgelogin()
+let  array2name=JSON.stringify(memory)
+localStorage.setItem( "mainRecipes",array2name)
 $('.modal').css("display" ," none");
 
 
-const welcome=$(`<div class="welcome" > 
-  مرحبا بك 
+const welcome=$(
+  
+  `<div class="welcome" > 
+
   <span class="welcome_name"> ${username.val()}</span>
   </div>`)
 
-mainType.append(welcome)
+main.append(welcome)
 }
 })
 
@@ -753,24 +751,19 @@ $('.b2').on("click",()=>{
 
 
  ///==================storge function==================
-function storgetask(){
-    let myfavstring=JSON.stringify(myfav)
-    // console.log(myfavstring)
-localStorage.setItem( "myfav",myfavstring)
-}
 
 
-function storgelogin(){
-  let login_liststring=JSON.stringify(login_list)
-  // console.log(myfavstring)
-localStorage.setItem( "myfav",login_liststring)
-}
 
-function storgemainRecipestask(){
-    let  mainRecipesstring=JSON.stringify(mainRecipes)
-    // console.log(myfavstring)
-localStorage.setItem( "mainRecipes",myfavstring)
-}
+
+
+// function storgelogin(){
+//   let login_liststring=JSON.stringify(login_list)
+//   // console.log(myfavstring)
+// localStorage.setItem( "myfav",login_liststring)
+// }
+// storgelogin();
+
+
 
 
 
