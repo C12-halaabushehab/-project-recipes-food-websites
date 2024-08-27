@@ -1,3 +1,6 @@
+const cont =$('')
+
+
 
 const main = $(`<div>   
   
@@ -14,12 +17,6 @@ body.append(main);
 const mainType = $(`<div></div>`);
 mainType.addClass("main_Type");
 main.append(mainType);
-
-
-
-
-
-
 
 const chooseYor_list = $(
   `<div> 
@@ -46,16 +43,14 @@ const meals = $(`<div></div>`);
 meals.addClass("meals");
 main.append(meals);
 
-
-
 const tag = $(` <div class="tag"> <div class="inf">
 
       <h1>للتواصل : </h1>
 
       
-    <p>العنوان : الاردن-عمان</p>
-    <p>رقم الهاتف : 06123421</p>
-    <p>الموبايل : 076543234</p>
+    <p>🏢العنوان : الاردن-عمان</p>
+    <p>☎️رقم الهاتف : 06123421</p>
+    <p>📱الموبايل : 076543234</p>
 
     <p>          <a href="#"><i class="fa fa-envelope"></i></a> 
        البريد الالكتروني: traditional_food@hotmail.com</p>
@@ -90,8 +85,6 @@ const end = $(
   </div>`
 );
 body.append(end);
-
-
 
 const mainRecipes = [
   {
@@ -252,46 +245,44 @@ const mainRecipes = [
 ];
 
 mainRecipes.forEach((e, i) => {
-
-
   const thelist = $(
-    `<div  id="category" class="category" data-value ="category${i}">${e.category}</div>`
+    `<div  id="category" class="category" data-value ="${i}">${e.category}</div>`
   );
   mainType.append(thelist);
 
-
-
-
-
-
-
-
-// عرض الوصفات حسب الصنف 
-//  الطلب انو ينعرض e داخلها 
-const mainRecipes_show = $(`<div>
-   ${e}  
+  // عرض الوصفات حسب الصنف
+  //  الطلب انو ينعرض e داخلها
+  const mainRecipes_show = $(`<div>
+   ${this}  
 </div>`);
- $(function() {
-thelist.on("click", function() {
+  $(function () {
+    thelist.on("click", function () {
+      $(".meals").empty()
+      let dish = $(this).data("value");
+      console.log(dish)
+      console.log(e)
+iteration_function(mainRecipes[dish])
+// mainRecipes.filter((select,i)=>{
+// console.log( "select",select)
+// // if ( select.includes(category)){
 
-  let dish = $(this).data('value')
-  // console.log(dish)
-  // console.log(e)
-       meals.hide(500);
-       $(`.main`).append(mainRecipes_show);
-        
-   });
+// if ( select.includes(category)){
+//   meals.hide(500);
+//       $(`.main`).append(mainRecipes_show);
 
-  })
+// }
 
-
-
-
-    //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
-      //  console.log(mainRecipes[0])
-// mainRecipes.forEach((dish ,i)=>{
-// console.log($(this))
 // })
+    
+    });
+  });
+
+  // هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
+  //  console.log(mainRecipes[0])
+  // mainRecipes.forEach((dish ,i)=>{
+  // console.log($(this))
+//   })
+ });
 
 
 
@@ -299,42 +290,37 @@ thelist.on("click", function() {
 
 
 
+//اعملللها ادخال من اول وجديد  لاعمللها عرض
+/* <p id="result"></p> */
 
 
 
+// البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
+$(function myFunction() {
+  $("#search").on("keyup", function () {
+    let value = $(this).val();
+ const search_Data=  mainRecipes[0].recipes.filter( (elm ,i) =>{
+console.log(elm)
+return elm.name.includes( value)
 
-
+  });
+  console.log(search_Data)
+  iteration_function(search_Data)
+  });
 });
 
 
-
- 
+// function filterArray() {
+//   const input = $('#search').value;
+//   const resultElement = $('#result');
   
-  // البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
-  
-    // $(function() {
-    //     $("#search").on("keyup", function() {
-    //         //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
-    //         const value = $(this).val();
-    //         mainRecipes.filter((f)=> {
-    //           console.log(f)
-    //           if(f.name.indexOf(value))
-    //             $(this).toggle($(this).text().indexOf(value) > -1);
-    //         });
-    //     });
-    // });
-
-
-    $(function myFunction() {
-      $("#search").on("keyup", function() {
-          const value = $(this).val();
-          $("#show div").filter(function() {
-              $(this).toggle($(this).text().indexOf(value) > -1);
-          });
-      });
-    });
-    
-    
+//   // تحقق مما إذا كان العنصر موجودًا في المصفوفة
+//   if (mainRecipes.includes(input)) {
+//       resultElement.text( `Item found: ${input}` ) 
+//   } else {
+//       resultElement.html('Item not found' ) 
+//   }
+// }
 
 
 
@@ -343,39 +329,22 @@ thelist.on("click", function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-const login_list =[]
+const login_list = [];
 const myfav = [];
 
-
-//هون داله عكسية لما حولت الصفوفه الى سترنغ واستخدمتها هلا بدي ارجعها ل مصفوفه لاستخدمها هون 
-function getmyfavFromstorge(){
-let retrietmyfav=JSON.parse(localStorage.getItem("myfav"))
-if(retrietmyfav == null){
-    myfav=[]
-}else{
-    myfav=retrietmyfav
-}
-}
-
-mainRecipes.forEach((m, i) => {
-  mainRecipes[i].recipes.forEach((e, i) => {
-
-    console.log( "INDEX" , mainRecipes[i].recipes.indexOf())
-
-
+//هون داله عكسية لما حولت الصفوفه الى سترنغ واستخدمتها هلا بدي ارجعها ل مصفوفه لاستخدمها هون
+// function getmyfavFromstorge() {
+//   let retrietmyfav = JSON.parse(localStorage.getItem("myfav"));
+//   if (retrietmyfav == null) {
+//     myfav = [];
+//   } else {
+//     myfav = retrietmyfav;
+//   }
+//
+const iteration_function =(arr)=>{
+// mainRecipes.forEach((m, i) => {
+  arr.recipes.forEach((e, i) => {
+    // console.log("INDEX", mainRecipes[i].recipes.indexOf());
 
     const imageDiv =
       $(`<div class="border" id="border${i}"  data-border="border${i}"> 
@@ -383,24 +352,17 @@ mainRecipes.forEach((m, i) => {
             <h3 class="names"> ${e.name} </h3> 
       </div>`);
 
+    // console.log("index2" , mainRecipes[i].recipes.indexOf(this))
 
-   
-      // console.log("index2" , mainRecipes[i].recipes.indexOf(this))
-
-    const add_fav =
-      $(`<button  class="fav" id ="fav"  data-fav="fav${i} ">
+    const add_fav = $(`<button  class="fav" id ="fav"  data-fav="fav${i} ">
              add 
         </button>
         `);
-        const delet_fav= $(`<button  class="del" id ="del"  data-fav="del${i}" >
+    const delet_fav = $(`<button  class="del" id ="del"  data-fav="del${i}" >
           delet 
-          </button>`)
+          </button>`);
 
-
-
-
-
-        const rating = $(`
+    const rating = $(`
               <div class="rating_box"> 
 
              <h4>Please rate the recipe</h4>
@@ -412,83 +374,52 @@ mainRecipes.forEach((m, i) => {
         <span class="star" data-value="5">&#9733;</span>
            </div></div>
                `);
-           
+              
+    // هون ما عم يزبط الا على  rating  وانا ما بدي اياها
+    //  const star_1=$('.stars span')
+    //  console.log(star_1)
+    // star_1.on("mouseenter",function (){
+    //   let rate = $(this).data('value')
+    //   highlightStar (rate)
+    // })
 
-// هون ما عم يزبط الا على  rating  وانا ما بدي اياها 
-//  const star_1=$('.stars span')
-//  console.log(star_1)
-// star_1.on("mouseenter",function (){
-//   let rate = $(this).data('value')
-//   highlightStar (rate)
-// })
- 
+    $(".stars").on("mouseleave", function () {
+      resetStars();
+      highlightStar($(".star").data("value"));
+    });
 
+    $(".star").on("click", function () {
+      let rate = $(this).data("value");
+      // $('.star').removeClass('selected')
+      $(this).addClass("selected");
+      highlightStar(rate);
+      //  console.log('selected'+rate);
+    });
 
-
-
-$(".stars").on('mouseleave',function(){
-  resetStars()
-  highlightStar ($('.star').data('value'))
-})
-
-
-
-$('.star').on("click",function(){
-  let rate=$(this).data('value')
-// $('.star').removeClass('selected')
-$(this).addClass('selected')
-highlightStar (rate)
-//  console.log('selected'+rate);
-})
-
-
-
-function highlightStar (rate){
- $('.star').each(function(){
-  let starValue=$(this).data('value')
-  if(starValue <= rate){
- $(this).addClass('highlited')  
-  }else{
-    $(this).removeClass('highlited')
-  }
- })
-
-
-
-}
-function resetStars(){
-  $('.star').removeClass('highlited')
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    function highlightStar(rate) {
+      $(".star").each(function () {
+        let starValue = $(this).data("value");
+        if (starValue <= rate) {
+          $(this).addClass("highlited");
+        } else {
+          $(this).removeClass("highlited");
+        }
+      });
+    }
+    function resetStars() {
+      $(".star").removeClass("highlited");
+    }
 
     const container = $(`
     <div id="show"  > </div>  `);
 
+    //تجربة localstorage
 
-
-//تجربة localstorage
-
-//    let name=localStorage.getItem("name")
-//     alert(name)
-// localStorage.setItem( "name","hala")
+    //    let name=localStorage.getItem("name")
+    //     alert(name)
+    // localStorage.setItem( "name","hala")
 
     //هون فعلت كليك كل ما اكبس على صورة من الموجوده في الشاشه بيطلعلي التفاصيل الها
-
 
     const detailes = $(`<div class="detailes">
     <h1  class="detailes_h"  >${e.name}</h1>
@@ -507,93 +438,65 @@ function resetStars(){
       });
     });
 
-
-
-
-
-
-
-    
     //هون عم بشغل قائمة المفضله
     const working = () => {
-
       const yourlist = $(`<div>   ${e} </div> `);
-        add_fav.on("click", function () {
-          console.log(e)
+      add_fav.on("click", function () {
+        console.log(e);
         myfav.push(e);
-          let myfavstring=JSON.stringify(myfav)
-      localStorage.setItem( "myfav",myfavstring)
-//كود ممكن يستخدم اكتر من مكان عملتو function 
+        let myfavstring = JSON.stringify(myfav);
+        localStorage.setItem("myfav", myfavstring);
+        //كود ممكن يستخدم اكتر من مكان عملتو function
         $("#fav_list").on("click", () => {
           meals.hide(500);
           $(`.main`).append(imageDiv);
           $("#fav_list").on("click", () => {
-meals.show()        
-          })
+            meals.show();
+          });
         });
-    });
+      });
 
- imageDiv.on("click", function (k) {
-      console.log(k)
-          const index= myfav.indexOf(k)
-          console.log(index)
-            if(index !== -1)
-            myfav.slice( index,1)
+      delet_fav.on("click", function (k) {
+        console.log(k);
+        const index = myfav.indexOf(e);
+        console.log(k);
+        if (index !== -1) {
+          myfav.slice(index, 1);
 
-
-            let myfavstring=JSON.stringify(myfav)
-            localStorage.setItem( "myfav",myfavstring)
-            console.log(index)
-            console.log(myfav)
-          })
+          console.log(myfav)
+        }
+        let myfavstring = JSON.stringify(myfav);
+        localStorage.setItem("myfav", myfavstring);
+        console.log(index);
+        console.log(myfav);
+      });
     };
     working();
 
- 
-
-    
     container.append(imageDiv);
     container.append(rating);
     meals.append(container);
     container.append(add_fav);
-    container.append(delet_fav)
-
+    container.append(delet_fav);
   });
-});
-
+// });
+}
+iteration_function(mainRecipes[0])
+iteration_function(mainRecipes[1])
+iteration_function(mainRecipes[2])
+iteration_function(mainRecipes[3])
 // صار عندي مشكلة في التقيم فوق  بسبب ترتيب append
-// عملت تقيم للصفحه بكل عام 
+// عملت تقيم للصفحه بكل عام
 
-
- const page_rating = $(`
+const page_rating = $(`
   <header>  <h1 class="site-name" >  "في زعتر بلادي وسماقها، طعم الحنين ينساب من الأطباق،
 وفي خبز الطابون تُكتب حكايا أجدادنا، عشق الأرض والميراث."
     </h1> </header>
- `)
+ `);
 
- main.append(page_rating)
+main.append(page_rating);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- const login = $(`<div id="mymodal" class="modal" > 
+const login = $(`<div id="mymodal" class="modal" > 
   <div class="content_animate" method="post" >
     <img class="img_modal" src="avatar-3814049_1280.webp">
    <div class="login_inf">
@@ -626,135 +529,105 @@ meals.show()
     </div>
 </div>
 
-</div> `)
+</div> `);
 
-body.append(login)
+body.append(login);
 
+$(".login").on("click", () => {
+  $(".modal").css("display", " block");
 
+  console.log("login");
+});
 
-
-$('.login').on("click",()=>{
-  $('.modal').css("display" ," block");
-    
- console.log('login')
- })
- 
-
-
- $('.cancel').on('click',()=>{
-  $('.modal').css("display" ," none");
-console.log("cansel")
-})
-
+$(".cancel").on("click", () => {
+  $(".modal").css("display", " none");
+  console.log("cansel");
+});
 
 //=======================تسجيل الدخول========================
-$(function(){
-  const username=$('.user_0' )
-  const password=$('.pass_0' )
-  const usernameError=$('#error_user' )
-  const passwordError=$('#error_pass' )
-  const loginBtn=$('.user_btn ')
-  const modal=$('.modal')
+$(function () {
+  const username = $(".user_0");
+  const password = $(".pass_0");
+  const usernameError = $("#error_user");
+  const passwordError = $("#error_pass");
+  const loginBtn = $(".user_btn ");
+  const modal = $(".modal");
 
-username.on("keyup",()=>{
-  if(username.val() == ""){
-    usernameError.css("display" ," block");}
-    else{
-      usernameError.css("display" ," none");
+  username.on("keyup", () => {
+    if (username.val() == "") {
+      usernameError.css("display", " block");
+    } else {
+      usernameError.css("display", " none");
     }
+  });
 
-})
-
-password.on("keyup",()=>{
-  if(password.val() == ""){
-    passwordError.css("display" ," block");}
-    else{
-      passwordError.css("display" ," none");
+  password.on("keyup", () => {
+    if (password.val() == "") {
+      passwordError.css("display", " block");
+    } else {
+      passwordError.css("display", " none");
     }
+  });
 
-})
+  loginBtn.on("click", () => {
+    if (username.val() == "") {
+      usernameError.css("display", " block");
+    }
+    if (password.val() == "") {
+      passwordError.css("display", " block");
+    } else {
+      usernameError.css("display", " none");
+      passwordError.css("display", " none");
+      const memory = {
+        username: `${username.val()}`,
+        password: `${password.val()}`,
+      };
 
-loginBtn.on("click",()=>{
-  if(username.val() == ""){
-    usernameError.css("display" ," block");}
-    if(password.val() == ""){
-      passwordError.css("display" ," block");}
-else{
-  usernameError.css("display" ," none");
-  passwordError.css("display" ," none");
-  const  memory={
-    username:`${username.val()}`,
-   password:`${password.val()}`
-  }
+      console.log(memory);
+      login_list.push(memory);
+      let array2name = JSON.stringify(memory);
+      localStorage.setItem("mainRecipes", array2name);
+      $(".modal").css("display", " none");
 
-console.log(memory)
-login_list.push(memory)
-let  array2name=JSON.stringify(memory)
-localStorage.setItem( "mainRecipes",array2name)
-$('.modal').css("display" ," none");
-
-
-const welcome=$(
-  
-  `<div class="welcome" > 
-
+      const welcome = $(
+        `<div class="welcome" > 
+welcome<br>👋🏻
   <span class="welcome_name"> ${username.val()}</span>
-  </div>`)
+  </div>`
+      );
 
-main.append(welcome)
-}
-})
-
-})
-
+      main.append(welcome);
+    }
+  });
+});
 
 //================================================================
 
-const dark_light=(`
+const dark_light = `
 
  <button class="b1">🌞</button>
 
  <button class="b2">🌛</button>
-  `)
+  `;
 
-main.append(dark_light)
+main.append(dark_light);
 
+$(function () {
+  $(".b1").on("click", () => {
+    $("body").css({
+      color: "black",
+      background: "white",
+    });
+  });
+  $(".b2").on("click", () => {
+    $("body").css({
+      color: "white",
+      background: "black",
+    });
+  });
+});
 
-
-
-$(function(){
-
-$('.b1').on("click",()=>{
-$('body').css({
-'color':'black',
-'background':'white'
-})
-})
-$('.b2').on("click",()=>{
-
-  $('body').css({
-  'color':'white',
-  'background':'black'
-  })
-  })
-  
-
-
-})
-
-
-
-
-
-
-
-
-
- ///==================storge function==================
-
-
-
-
+///==================storge function==================
 
 // function storgelogin(){
 //   let login_liststring=JSON.stringify(login_list)
@@ -763,19 +636,13 @@ $('.b2').on("click",()=>{
 // }
 // storgelogin();
 
-
-
-
-
 // $(function() {
-  //     $(".category").on("click", function() {
-  //         console.log(this)
-  //         //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه 
-  //         const category = $(mainRecipes[1].recipes);
-  //         $("#category div").filter(function() {
-  //             $(mainRecipes[1].recipes).toggle($(mainRecipes[1].recipes).text().indexOf(category) > -1);
-  //         });
-  //     });
-  // });
-  
-  
+//     $(".category").on("click", function() {
+//         console.log(this)
+//         //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
+//         const category = $(mainRecipes[1].recipes);
+//         $("#category div").filter(function() {
+//             $(mainRecipes[1].recipes).toggle($(mainRecipes[1].recipes).text().indexOf(category) > -1);
+//         });
+//     });
+// });
