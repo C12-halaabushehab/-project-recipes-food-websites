@@ -1,7 +1,5 @@
-// const cont =$('new_mainRecipes');
-// $(function(){
 
-// })
+
 
 const main = $(`<div>   
   
@@ -54,16 +52,20 @@ const tag = $(` <div class="tag"> <div class="inf">
     <p>📱الموبايل : 076543234</p>
 
     <p>          <a href="#"><i class="fa fa-envelope"></i></a> 
-       البريد الالكتروني: traditional_food@hotmail.com</p>
+       البريد الالكتروني: traditional_food <a href="#"> @hotmail.com
+   </a> </p>
 
     </div> 
      <div class="social" >
     
  <h1> مواقع التواصل الاجتماعي :</h1>
-<p>Facebook: Facebook Page</p>
-<p>Twitter: Twitter Profile</p>
-<p>LinkedIn: LinkedIn Profile</p>
-<p>Instagram: Instagram Profile</p>
+<p>Facebook: <a href="#"> Dar Al-Zaytoun
+   </a> </p> 
+
+<p>Twitter: <a href="#">  traditional_food
+   </a> </p>
+<p>Instagram: <a href="#"> Dar Al-Zaytoun
+   </a> </p>
     </div>
 <div class="link">
  <h1> روابط :</h1>
@@ -248,7 +250,9 @@ const mainRecipes = [
 mainRecipes.forEach((e, i) => {
   const thelist = $(
     `<div  id="category" class="category" data-value ="${i}">${e.category}</div>`
+
   );
+  console.log(i)
   mainType.append(thelist);
 
   // عرض الوصفات حسب الصنف
@@ -256,28 +260,78 @@ mainRecipes.forEach((e, i) => {
   const mainRecipes_show = $(`<div>
    ${this}  
 </div>`);
+
+
   $(function () {
     thelist.on("click", function () {
       $(".meals").empty();
       let dish = $(this).data("value");
-      console.log(dish);
-      console.log(e);
+
+      console.log(mainRecipes[dish]);
       iteration_function(mainRecipes[dish]);
+
     });
   });
 });
+
+main.on("dblclick", function () {
+  console.log("h")
+  $(".meals").empty();
+  iteration_function(mainRecipes[0]);
+  iteration_function(mainRecipes[1]);
+  iteration_function(mainRecipes[2]);
+  iteration_function(mainRecipes[3]);
+
+})
+
+
 
 // البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
 
 $(function myFunction() {
+  // mainRecipes.forEach(function(recipe) {
+  //   iteration_function(recipe);
+  // });
+
+  // إعداد البحث لتصفية الأطباق بناءً على المدخلات في حقل البحث
   $("#search").on("keyup", function () {
-    //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
-    const value = $(this).val();
-    $("#show div").filter(function () {
-      $(this).toggle($(this).text().indexOf(value) > -1);
+    const value = $(this).val(); // تحويل النص إلى حروف صغيرة للتأكد من عدم حساسية الحالة
+    // console.log(value)
+    $(".meals").filter(function () {
+      $(this).toggle($(this).text().indexOf(value) > -1)
+      meals.appand($(this).text().indexOf(value) > -1)
+      // استخدام toggle لعرض/إخفاء العناصر التي تتطابق مع قيمة البحث
     });
   });
 });
+
+
+
+// $("#search").on("keyup", function () {
+//   //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
+//   const value = $(this).val();
+//   $("#show div").filter(function () {
+//     $(this).toggle($(this).text().indexOf(value) > -1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const login_list = [];
 let myfav = [];
@@ -355,11 +409,7 @@ const iteration_function = (arr) => {
     const container = $(`
     <div id="show"  > </div>  `);
 
-    // تجربة localstorage
-
-    //    let name=localStorage.getItem("name")
-    //     alert(name)
-    // localStorage.setItem( "name","hala")
+   
 
     //هون فعلت كليك كل ما اكبس على صورة من الموجوده في الشاشه بيطلعلي التفاصيل الها
 
@@ -418,8 +468,7 @@ iteration_function(mainRecipes[3]);
 $(`.del`).on("click", function (e) {
   console.log(e.target.id);
 
-  //   const index = myfav.indexOf(e);
-  //  console.log(index)
+
 
   let arr = myfav.filter((element, i) => {
     console.log(element);
@@ -434,16 +483,15 @@ $(`.del`).on("click", function (e) {
   // console.log(index);
   // console.log(myfav);
 });
-// صار عندي مشكلة في التقيم فوق  بسبب ترتيب append
-// عملت تقيم للصفحه بكل عام
 
-const page_rating = $(`
+
+const announcment = $(`
   <header>  <h1 class="site-name" >  "في زعتر بلادي وسماقها، طعم الحنين ينساب من الأطباق،
 وفي خبز الطابون تُكتب حكايا أجدادنا، عشق الأرض والميراث."
     </h1> </header>
  `);
 
-main.append(page_rating);
+main.append(announcment);
 
 const login = $(`<div id="mymodal" class="modal" > 
   <div class="content_animate" method="post" >
@@ -493,6 +541,10 @@ $(".cancel").on("click", () => {
   console.log("cansel");
 });
 
+
+
+
+
 //=======================تسجيل الدخول========================
 $(function () {
   const username = $(".user_0");
@@ -510,6 +562,7 @@ $(function () {
     }
   });
 
+
   password.on("keyup", () => {
     if (password.val() == "") {
       passwordError.css("display", " block");
@@ -519,6 +572,13 @@ $(function () {
   });
 
   loginBtn.on("click", () => {
+    if (username.val() === "ahmad sh" && password.val() === "272727") {
+      // $(".modal").css("display", " none");
+      $(".all_page").css("display", " block");
+    }
+
+
+
     if (username.val() == "") {
       usernameError.css("display", " block");
     }
@@ -544,7 +604,6 @@ welcome<br>👋🏻
   <span class="welcome_name"> ${username.val()}</span>
   </div>`
       );
-
       main.append(welcome);
     }
   });
@@ -584,3 +643,106 @@ function storgelogin() {
   localStorage.setItem("myfav", login_liststring);
 }
 storgelogin();
+
+
+
+
+//==============================================dashboard
+
+
+const admin = $(`<div class="all_page">
+
+  <div class="admin">
+        <ul>
+
+          <div class=".profile_admin">
+                      <div class="image-container">
+                        <h1>,Welcome<br> Admin</h1>
+              <img src="profile.jpg" >
+              </div>
+            
+        </div>
+        <p> settings </p>
+    
+             <li>
+                 <a class="active" href="#">
+                  <i> 🏠</i>
+                 <p>home</p> 
+                 </a>
+             </li>
+             <li>
+                 <a  href="#">
+                 <i> 👥</i>
+                 <p>users</p> 
+                 </a>
+             </li>
+             <li>
+               <a  href="#">
+               <i> 🍴</i>
+               <p>recipes</p> 
+               </a>
+            </li>
+            <li>
+               <a  href="#">
+               <i> 📈</i>
+               <p>chart</p> 
+               </a>
+            </li>
+            <li>
+               <a  href="#">
+               <i> ⭐</i>
+               <p>rating</p> 
+               </a>
+           </li>
+           <li>
+               <a class="log_out" href="#">
+               <i>📤 </i>
+               <p>log out</p> 
+               </a>
+          </li>
+     </ul>
+  </div>
+  
+  <div class="info">
+<div class="titel_start">hfhfhfhfhf</div>
+  <div class="info_1">
+<div class="box"> 
+      <i >👤</i>
+      <div class="box_data">
+                    <p>user</p>
+                 <span>1034</span>
+     </div>
+</div>
+<div class="box"> 
+      <i >🍴</i>
+      <div class="box_data">
+                    <p>recipes</p>
+                 <span>144</span>
+     </div>
+</div>
+<div class="box"> 
+      <i >📈</i>
+      <div class="box_data">
+                    <p>chart</p>
+                 <span>1033</span>
+     </div>
+</div>
+<div class="box"> 
+      <i >⭐</i>
+      <div class="box_data">
+                    <p>rating</p>
+                 <span>10333</span>
+     </div>
+</div>
+</div>
+
+
+ `);
+
+body.append(admin);
+
+$(".log_out ").on("click", () => {
+  $(".all_page").css("display", " none");
+
+});
+
