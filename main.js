@@ -27,10 +27,8 @@ const chooseYor_list = $(
 mainType.append(chooseYor_list);
 
 const search = $(`
-      <label for="search">البحث</label>
-        <a href="#"><i class="fa fa-search"></i></a> 
-
-<input type="search" id="search" name="search"  placeholder="ابحث عن الوصفه"  style="font-size:30px;"  title="Type in a name"   onkeyup="myFunction()"   /><br>
+   
+<input type="search" id="search" name="search"  placeholder="ابحث عن الوصفه"  style=" height: 40pxc;  width: 300px;   padding: 10px;     "  title="Type in a name"   onkeyup="myFunction()"   /><br>
   
 
 
@@ -289,22 +287,32 @@ main.on("dblclick", function () {
 // البحث  هون عملت فلتر على المصفوفه كلها كل ما ادخل قيمه يشوف ادا انها داخل المصفوفه او لاء
 
 $(function myFunction() {
-  // mainRecipes.forEach(function(recipe) {
-  //   iteration_function(recipe);
-  // });
-
-  // إعداد البحث لتصفية الأطباق بناءً على المدخلات في حقل البحث
   $("#search").on("keyup", function () {
-    const value = $(this).val(); // تحويل النص إلى حروف صغيرة للتأكد من عدم حساسية الحالة
-    // console.log(value)
-    $(".meals").filter(function () {
-      $(this).toggle($(this).text().indexOf(value) > -1)
-      meals.appand($(this).text().indexOf(value) > -1)
-      // استخدام toggle لعرض/إخفاء العناصر التي تتطابق مع قيمة البحث
+    //هون اخترت انو يقارن و يختار من قائمة الاطباق المعروضه
+    const value = $(this).val();
+    $("#show div").filter(function () {
+      $('.fav').hide();
+      $('.del').hide();
+      console.log(this)
+      $(this).toggle($(this).text().indexOf(value) > -1);
     });
   });
 });
 
+//   // إعداد البحث لتصفية الأطباق بناءً على المدخلات في حقل البحث
+//   $("#search").on("keyup", function () {
+//     const value = $(this).val();
+    
+//     $('.show div').filter((ele)=>{
+
+
+    
+    // تحويل النص إلى حروف صغيرة للتأكد من عدم حساسية الحالة
+//  mainRecipes.filter(function (ele) {
+//       $(ele).toggle($(ele).text().indexOf(value) > -1)
+//       meals.appand($(ele).text().indexOf(value) > -1)
+      // استخدام toggle لعرض/إخفاء العناصر التي تتطابق مع قيمة البحث
+  
 
 
 // $("#search").on("keyup", function () {
@@ -312,6 +320,7 @@ $(function myFunction() {
 //   const value = $(this).val();
 //   $("#show div").filter(function () {
 //     $(this).toggle($(this).text().indexOf(value) > -1);
+//   )}
 
 
 
@@ -337,14 +346,15 @@ const login_list = [];
 let myfav = [];
 
 //هون داله عكسية لما حولت الصفوفه الى سترنغ واستخدمتها هلا بدي ارجعها ل مصفوفه لاستخدمها هون
-// function getmyfavFromstorge() {
-//   let retrietmyfav = JSON.parse(localStorage.getItem("myfav"));
-//   if (retrietmyfav == null) {
-//     myfav = [];
-//   } else {
-//     myfav = retrietmyfav;
-//   }
-//
+function getmyfavFromstorge() {
+  let retrietmyfav = JSON.parse(localStorage.getItem("myfav"));
+  if (retrietmyfav == null) {
+    myfav = [];
+  } else {
+    myfav = retrietmyfav;
+  }
+}
+
 const iteration_function = (arr) => {
   // mainRecipes.forEach((m, i) => {
   arr.recipes.forEach((e, i) => {
@@ -366,46 +376,69 @@ const iteration_function = (arr) => {
           delet 
           </button>`);
 
-    const rating = $(`
-              <div class="rating_box"> 
 
-             <h4>Please rate the recipe</h4>
-           <div class="stars">
-         <span class="star" data-value="1">&#9733;</span>
-        <span class="star" data-value="2">&#9733;</span>
-        <span class="star" data-value="3">&#9733;</span>
-        <span class="star" data-value="4">&#9733;</span>
-        <span class="star" data-value="5">&#9733;</span>
-           </div></div>
-               `);
 
-    $(".stars").on("mouseleave", function () {
-      resetStars();
-      highlightStar($(".star").data("value"));
-    });
 
-    $(".star").on("click", function () {
-      let rate = $(this).data("value");
-      // $('.star').removeClass('selected')
-      $(this).addClass("selected");
-      highlightStar(rate);
-      //  console.log('selected'+rate);
-    });
 
-    function highlightStar(rate) {
-      $(".star").each(function () {
-        let starValue = $(this).data("value");
-        if (starValue <= rate) {
-          $(this).addClass("highlited");
-        } else {
-          $(this).removeClass("highlited");
-        }
-      });
-    }
-    function resetStars() {
-      $(".star").removeClass("highlited");
-    }
 
+
+    
+const rating = $(`
+  <div class="rating_box"> 
+
+ <h4>Please rate the recipe</h4>
+<div class="stars">
+<span class="star" data-value="1">&#9733;</span>
+<span class="star" data-value="2">&#9733;</span>
+<span class="star" data-value="3">&#9733;</span>
+<span class="star" data-value="4">&#9733;</span>
+<span class="star" data-value="5">&#9733;</span>
+</div></div>
+   `);
+
+$(".stars").on("mouseleave", function () {
+resetStars();
+highlightStar($(".star").data("value"));
+});
+
+$(".star").on("click", function () {
+let rate = $(this).data("value");
+// $('.star').removeClass('selected')
+$(this).addClass("selected");
+highlightStar(rate);
+//  console.log('selected'+rate);
+});
+
+function highlightStar(rate) {
+$(".star").each(function () {
+let starValue = $(this).data("value");
+if (starValue <= rate) {
+$(this).addClass("highlited");
+} else {
+$(this).removeClass("highlited");
+}
+});
+}
+function resetStars() {
+$(".star").removeClass("highlited");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     const container = $(`
     <div id="show"  > </div>  `);
 
@@ -439,19 +472,45 @@ const iteration_function = (arr) => {
         myfav.push(e);
         console.log("myfav", myfav);
 
+
+
+
+
+
+
+
+
+
         let myfavstring = JSON.stringify(myfav);
         localStorage.setItem("myfav", myfavstring);
         //كود ممكن يستخدم اكتر من مكان عملتو function
         $("#fav_list").on("click", () => {
-          meals.hide(500);
+          meals.empty();
           $(`.main`).append(imageDiv);
+
           $("#fav_list").on("click", () => {
-            meals.show();
+            $(".meals").empty();
+  iteration_function(mainRecipes[0]);
+  iteration_function(mainRecipes[1]);
+  iteration_function(mainRecipes[2]);
+  iteration_function(mainRecipes[3]);
+;
           });
         });
       });
     };
     working();
+
+
+
+
+
+
+
+
+
+
+
 
     container.append(imageDiv);
     container.append(rating);
@@ -650,90 +709,118 @@ storgelogin();
 //==============================================dashboard
 
 
-const admin = $(`<div class="all_page">
+const admin = $(`
+  <div class="all_page">
 
-  <div class="admin">
-        <ul>
+<div class="admin_0 ">
 
-          <div class=".profile_admin">
-                      <div class="image-container">
-                        <h1>,Welcome<br> Admin</h1>
-              <img src="profile.jpg" >
-              </div>
-            
-        </div>
-        <p> settings </p>
-    
-             <li>
-                 <a class="active" href="#">
-                  <i> 🏠</i>
-                 <p>home</p> 
-                 </a>
-             </li>
-             <li>
+    <div class="admin">
+          <ul>
+            <div class=".profile_admin">
+                        <div class="image-container">
+                          <h1>,Welcome<br> ahmad</h1>
+                <img src="profile.jpg" >
+                </div>
+              
+      
+          <p> settings </p>
+      
+               <li>
+                   <a class="active" href="#">
+                    <i> 🏠</i>
+                   <p>home</p> 
+                   </a>
+               </li>
+               <li>
+                   <a  href="#">
+                   <i> 👥</i>
+                   <p>users</p> 
+                   </a>
+               </li>
+               <li>
                  <a  href="#">
-                 <i> 👥</i>
-                 <p>users</p> 
+                 <i> 🍴</i>
+                 <p>recipes</p> 
+                 </a>
+              </li>
+              <li>
+                 <a  href="#">
+                 <i> 📈</i>
+                 <p>chart</p> 
+                 </a>
+              </li>
+              <li>
+                 <a  href="#">
+                 <i> ⭐</i>
+                 <p>rating</p> 
                  </a>
              </li>
              <li>
-               <a  href="#">
-               <i> 🍴</i>
-               <p>recipes</p> 
-               </a>
+                 <a class="log_out" href="#">
+                 <i>📤 </i>
+                 <p>log out</p> 
+                 </a>
             </li>
-            <li>
-               <a  href="#">
-               <i> 📈</i>
-               <p>chart</p> 
-               </a>
-            </li>
-            <li>
-               <a  href="#">
-               <i> ⭐</i>
-               <p>rating</p> 
-               </a>
-           </li>
-           <li>
-               <a class="log_out" href="#">
-               <i>📤 </i>
-               <p>log out</p> 
-               </a>
-          </li>
-     </ul>
+       </ul>
+    </div>
+      <div class="titel_start">Analytics
+      
+      
+      
+        <div class="info">
+
+
+  <div class="box"> 
+        <i >👤</i>
+        <div class="box_data">
+                      <p>user</p>
+                   <span>1034</span>
+       </div>
   </div>
+  <div class="box"> 
+        <i >🍴</i>
+        <div class="box_data">
+                      <p>recipes</p>
+                   <span>144</span>
+       </div>
+  </div>
+  <div class="box"> 
+        <i >📈</i>
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+        <div class="box_data">
+                      <p>chart</p>
+                   <span>1033</span>
+       </div>
+  </div>
+  <div class="box"> 
+        <i >⭐</i>
+        <div class="box_data">
+                      <p>rating</p>
+                   <span>10333</span>
+       </div>
+  </div>
+
+  </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      </div>
+
   
-  <div class="info">
-<div class="titel_start">hfhfhfhfhf</div>
-  <div class="info_1">
-<div class="box"> 
-      <i >👤</i>
-      <div class="box_data">
-                    <p>user</p>
-                 <span>1034</span>
-     </div>
-</div>
-<div class="box"> 
-      <i >🍴</i>
-      <div class="box_data">
-                    <p>recipes</p>
-                 <span>144</span>
-     </div>
-</div>
-<div class="box"> 
-      <i >📈</i>
-      <div class="box_data">
-                    <p>chart</p>
-                 <span>1033</span>
-     </div>
-</div>
-<div class="box"> 
-      <i >⭐</i>
-      <div class="box_data">
-                    <p>rating</p>
-                 <span>10333</span>
-     </div>
-</div>
+
 </div>
 
 
