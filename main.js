@@ -3,7 +3,7 @@
 
 const main = $(`<div>   
   
-   <header ><button class="login" style="width:auto;"   >login</button><h1 class="site-name" >    دار الزيتون<br>
+   <header ><button class="login" style="width:auto;"   >login</button><h1 class="site-name" > مطبخ البلاد<br>
         للوصفات التقليدية 
  </h1>
 
@@ -49,21 +49,19 @@ const tag = $(` <div class="tag"> <div class="inf">
     <p>☎️رقم الهاتف : 06123421</p>
     <p>📱الموبايل : 076543234</p>
 
-    <p>          <a href="#"><i class="fa fa-envelope"></i></a> 
-       البريد الالكتروني: traditional_food <a href="#"> @hotmail.com
-   </a> </p>
-
+    <p >📩 البريد الالكتروني: traditional_food @hotmail.com</p>
     </div> 
-     <div class="social" >
-    
- <h1> مواقع التواصل الاجتماعي :</h1>
-<p>Facebook: <a href="#"> Dar Al-Zaytoun
-   </a> </p> 
 
-<p>Twitter: <a href="#">  traditional_food
-   </a> </p>
-<p>Instagram: <a href="#"> Dar Al-Zaytoun
-   </a> </p>
+
+
+     <div class="social" >
+ <h1> مواقع التواصل الاجتماعي :</h1>
+<p>Facebook: <p href="#"> Dar Al-Zaytoun </p> </p> 
+
+<p>Twitter: <p href="#">  traditional_food
+   </p> </p>
+<p>Instagram: <p href="#"> Dar Al-Zaytoun
+   </p> </p>
     </div>
 <div class="link">
  <h1> روابط :</h1>
@@ -464,6 +462,15 @@ $(".star").removeClass("highlited");
       });
     });
 
+
+
+
+
+
+
+
+
+
     //هون عم بشغل قائمة المفضله
     const working = () => {
       const yourlist = $(`<div>   ${e} </div> `);
@@ -471,16 +478,6 @@ $(".star").removeClass("highlited");
         console.log(e);
         myfav.push(e);
         console.log("myfav", myfav);
-
-
-
-
-
-
-
-
-
-
         let myfavstring = JSON.stringify(myfav);
         localStorage.setItem("myfav", myfavstring);
         //كود ممكن يستخدم اكتر من مكان عملتو function
@@ -501,17 +498,6 @@ $(".star").removeClass("highlited");
     };
     working();
 
-
-
-
-
-
-
-
-
-
-
-
     container.append(imageDiv);
     container.append(rating);
     meals.append(container);
@@ -526,13 +512,9 @@ iteration_function(mainRecipes[3]);
 
 $(`.del`).on("click", function (e) {
   console.log(e.target.id);
-
-
-
   let arr = myfav.filter((element, i) => {
     console.log(element);
-    console.log(myfav[e.target.id]);
-
+    console.log("id", myfav[e.target.id]);
     return myfav[e.target.id].name !== element.name;
   });
   console.log(arr);
@@ -545,12 +527,16 @@ $(`.del`).on("click", function (e) {
 
 
 const announcment = $(`
-  <header>  <h1 class="site-name" >  "في زعتر بلادي وسماقها، طعم الحنين ينساب من الأطباق،
-وفي خبز الطابون تُكتب حكايا أجدادنا، عشق الأرض والميراث."
-    </h1> </header>
+  <header>  <h1 class="site-name" > وصفه مميزه لزوار مطبخ البلاد لانقاص الوزن؟؟
+ </h1> </header>
  `);
-
 main.append(announcment);
+
+announcment.on('click' , ()=>{
+  alert(   "   MERAKI Project 😂  ")
+  announcment.html(`<h1 class="site-name"   style="font-size:40px   ">    MERAKI Project 😂  
+ </h1> `)
+})
 
 const login = $(`<div id="mymodal" class="modal" > 
   <div class="content_animate" method="post" >
@@ -786,8 +772,6 @@ const admin = $(`
   </div>
   <div class="box"> 
         <i >📈</i>
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
         <div class="box_data">
                       <p>chart</p>
                    <span>1033</span>
@@ -802,21 +786,7 @@ const admin = $(`
   </div>
 
   </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       </div>
 
   
